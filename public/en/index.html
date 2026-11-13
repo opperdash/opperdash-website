@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/teko-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=70eff89e">
+<link rel="stylesheet" href="/assets/css/style.css?v=e106373f">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "FoodEstablishment", "@id": "https://www.opperdash.be/#organisatie", "name": "Opperdash", "url": "https://www.opperdash.be/", "logo": "https://www.opperdash.be/assets/img/og-opperdash.jpg", "image": "https://www.opperdash.be/assets/img/catering-sfeer.webp", "description": "Nourishing culinary dishes with Mediterranean influences. Catering, buffets and a food truck for companies and events.", "email": "elias@opperdash.be", "telephone": "+32470326332", "address": {"@type": "PostalAddress", "addressLocality": "Leuven", "addressCountry": "BE"}, "servesCuisine": ["Mediterranean"], "founder": {"@type": "Person", "name": "Elias Nys"}, "knowsLanguage": ["nl", "en", "fr"], "sameAs": ["https://instagram.com/opperdash", "https://tiktok.com/@opperdash.be", "https://www.facebook.com/profile.php?id=61572850222575", "https://www.linkedin.com/in/elias-nys-a01702294/"], "areaServed": [{"@type": "City", "name": "Leuven"}, {"@type": "City", "name": "Brussel"}, {"@type": "City", "name": "Mechelen"}, {"@type": "AdministrativeArea", "name": "Vlaams-Brabant"}, {"@type": "Country", "name": "België"}]}, {"@type": "WebSite", "@id": "https://www.opperdash.be/#website", "url": "https://www.opperdash.be/", "name": "Opperdash", "inLanguage": ["nl-BE", "en", "fr-BE"], "publisher": {"@id": "https://www.opperdash.be/#organisatie"}}]}</script>
 </head>
 <body>
@@ -45,7 +45,7 @@
   <div class="header__binnen">
     <nav class="nav" aria-label="Main menu"><a href="/en/our-story">My story</a><a href="/en/food-truck">Food truck</a><a href="/en/catering">Catering</a><a href="/en/how-we-work">How I work</a></nav>
     <a class="logo" href="/en/" aria-label="Opperdash, go to the home page"><img src="/assets/img/logo-zwart.svg" alt="Opperdash" width="195" height="40"></a>
-    <div class="header__rechts"><details class="taal"><summary aria-label="Choose language: EN">EN</summary><nav class="taal__lijst" aria-label="Choose language"><a href="/" hreflang="nl-BE" lang="nl-BE">NL</a><a href="/fr/" hreflang="fr-BE" lang="fr-BE">FR</a></nav></details><a class="knop knop--groen knop--klein" href="/en/quote-catering">Free quote</a></div>
+    <div class="header__rechts"><details class="taal"><summary aria-label="Choose language: EN">EN</summary><nav class="taal__lijst" aria-label="Choose language"><a href="/" hreflang="nl-BE" lang="nl-BE">NL</a><a href="/fr/" hreflang="fr-BE" lang="fr-BE">FR</a></nav></details><a class="knop knop--groen knop--klein" href="/en/quote-catering">Free quote</a><span class="header__streep" aria-hidden="true"></span><a class="header__contact" href="/en/contact">Contact</a></div>
     <button class="menu-knop" aria-label="Open menu" data-open-label="Open menu" data-close-label="Close menu" aria-expanded="false" aria-controls="mobiel-menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>
     </button>
@@ -67,19 +67,31 @@
     <p class="hero__kop">Culinary.<br>Healthy.<br>Mediterranean.</p>
     <div class="knoppen">
       <a class="knop knop--groen knop--klein" href="/en/food-truck">Food truck</a>
-      <a class="knop knop--groen knop--klein" href="/en/catering">Catering</a>
+      <a class="knop knop--accent knop--klein" href="/en/catering">Catering</a>
     </div>
   </div>
 </section>
 
-<section class="sectie">
+<section class="sectie sectie--linnen">
   <div class="container kopblok">
     <h2 class="kop-groot">Welcome to Opperdash.</h2>
     <div class="kopblok__tekst"><p>My name is Elias. I am the chef and founder of Opperdash. I serve culinary, healthy dishes with Mediterranean influences.</p><p>I work exclusively with whole foods and pure produce, in step with the seasons. I do this from the food truck or as catering.</p></div>
+    <div class="keuze">
+      <article class="keuze__item">
+        <a class="keuze__beeld" href="/en/food-truck" tabindex="-1" aria-hidden="true"><img src="/assets/img/foodtruck-hero.webp" srcset="/assets/img/foodtruck-hero-m.webp 960w, /assets/img/foodtruck-hero.webp 1698w" sizes="(max-width: 800px) 100vw, 50vw" alt="The Opperdash food truck serving guests at a company event" width="1698" height="1132" loading="lazy" decoding="async"></a>
+        <p>From the food truck I cook and serve on site, from a company lunch to a large event of up to 250 guests.</p>
+        <a class="knop knop--klein" href="/en/food-truck">Food truck</a>
+      </article>
+      <article class="keuze__item">
+        <a class="keuze__beeld" href="/en/catering" tabindex="-1" aria-hidden="true"><img src="/assets/img/catering-sfeer.webp" srcset="/assets/img/catering-sfeer-m.webp 960w, /assets/img/catering-sfeer.webp 1920w" sizes="(max-width: 800px) 100vw, 50vw" alt="Bruschetta with tomato and fresh basil on ceramic, from the Opperdash buffet" width="1920" height="1275" loading="lazy" decoding="async"></a>
+        <p>A culinary buffet, seated catering or a walking dinner. Always on ceramic and with real cutlery.</p>
+        <a class="knop knop--klein" href="/en/catering">Catering</a>
+      </article>
+    </div>
   </div>
 </section>
 
-<section class="sectie sectie--split sectie--linnen">
+<section class="sectie sectie--split">
   <div class="duo">
     <div class="duo__beeld"><img src="/assets/img/catering-capaciteit.webp" alt="Elias Nys in an Opperdash apron holding a plate from the catering" width="962" height="641" loading="lazy" decoding="async"></div>
     <div class="duo__tekst">
@@ -90,7 +102,7 @@
 </section>
 
 
-<section class="sectie">
+<section class="sectie sectie--eco">
   <div class="container">
     <h2 class="kop-groot">What clients say.</h2>
     <figure class="citaat citaat--groot">
@@ -100,6 +112,29 @@
         <figcaption><span class="citaat__naam">Stef Goossens</span><span class="citaat__functie">CEO of <a href="https://www.linkedin.com/company/3e/" target="_blank" rel="noopener">3E</a></span><figcaption class="citaat__noot">Translated from Dutch</figcaption></figcaption>
       </div>
     </figure>
+  </div>
+</section>
+
+<section class="sectie">
+  <div class="container">
+    <h2 class="kop-groot">Who I cooked for.</h2>
+    <div class="kookte">
+      <article class="kookte__item">
+        <a class="kookte__beeld" href="/en/cases/" tabindex="-1" aria-hidden="true"><img src="/assets/img/case-xandres.webp" srcset="/assets/img/case-xandres-m.webp 960w, /assets/img/case-xandres.webp 1200w" sizes="(max-width: 800px) 100vw, 33vw" alt="Elias and an Opperdash colleague at the Xandres reception desk" width="1200" height="800" loading="lazy" decoding="async"></a>
+        <h3><a href="/en/cases/">Xandres</a></h3>
+        <p>Food truck · Destelbergen · ± 50 guests</p>
+      </article>
+      <article class="kookte__item">
+        <a class="kookte__beeld" href="/en/cases/" tabindex="-1" aria-hidden="true"><img src="/assets/img/case-kul.webp" srcset="/assets/img/case-kul-m.webp 960w, /assets/img/case-kul.webp 1200w" sizes="(max-width: 800px) 100vw, 33vw" alt="Pulled beef with pointed cabbage and apple slaw and spring onion in a white ceramic bowl" width="1200" height="800" loading="lazy" decoding="async"></a>
+        <h3><a href="/en/cases/">KU Leuven</a></h3>
+        <p>Food truck · Leuven · 26 guests</p>
+      </article>
+      <article class="kookte__item">
+        <a class="kookte__beeld" href="/en/cases/" tabindex="-1" aria-hidden="true"><img src="/assets/img/case-3p.webp" srcset="/assets/img/case-3p-m.webp 960w, /assets/img/case-3p.webp 1200w" sizes="(max-width: 800px) 100vw, 33vw" alt="Elias finishing a dish in the Opperdash food truck" width="1200" height="800" loading="lazy" decoding="async"></a>
+        <h3><a href="/en/cases/">3P</a></h3>
+        <p>Food truck · ± 40 guests</p>
+      </article></div>
+    <div class="knoppen cases-knop"><a class="knop" href="/en/cases/">Cases</a></div>
   </div>
 </section>
 
@@ -149,6 +184,6 @@
     <button type="button" class="knop knop--klein" data-cookies="nee">No thanks</button>
   </div>
 </div>
-<script src="/assets/js/site.js?v=ee272ef0" defer></script>
+<script src="/assets/js/site.js?v=94ea8a85" defer></script>
 </body>
 </html>
