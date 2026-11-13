@@ -84,7 +84,7 @@
     ctx.lineWidth = 2.4;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    ctx.strokeStyle = '#19194f';
+    ctx.strokeStyle = '#100E0A';
     getekend = false;
   }
   function punt(e) { var r = c.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }

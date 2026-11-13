@@ -55,15 +55,19 @@ const FORMULIEREN: Record<string, FormulierConfig> = {
   },
 }
 
+// Palet van 12/11/2026 (Context/brand.md): vooral wit en zwart, kleur alleen in kleine details
 const KLEUR = {
-  indigo: "#19194f",
-  rood: "#ED1C29",
-  groen: "#DCE8D3",
-  olijf: "#5D8139",
-  wit: "#FFFEFB",
-  bone: "#f1ebdd",
-  tekst: "#212529",
-  grijs: "#6b6f76",
+  zwart: "#100E0A",   // Offblack: koppen, kop van de mail
+  wit: "#FFFFFF",
+  linnen: "#F4F3E8",  // Soft linen: achtergrond, blokjes, berichtvak
+  zand: "#E6DDC8",    // Warm sand: taalnoot
+  ecogroen: "#DBE5D7",// Eco-green: voet
+  pine: "#154C40",    // Pine teal: knop, berichtlijn
+  tennis: "#EBFE72",  // Tennis ball: tekst op de pine teal-knop
+  tekst: "#100E0A",
+  grijs: "#5E5B55",
+  lijn: "#E2E0DA",
+  stippel: "#C8C5BD",
 }
 const KOP = "'Teko','Arial Narrow','Helvetica Neue',Arial,sans-serif"
 const TEKST = "'Lato','Helvetica Neue',Arial,sans-serif"
@@ -94,8 +98,8 @@ function tijdstip(iso: string): string {
 
 function waarde(veld: string, v: string): string {
   if (!v) return `<span style="color:${KLEUR.grijs};">niet ingevuld</span>`
-  if (veld === "email") return `<a href="mailto:${esc(v)}" style="color:${KLEUR.indigo};font-weight:700;">${esc(v)}</a>`
-  if (veld === "telefoon") return `<a href="tel:${esc(v.replace(/[^\d+]/g, ""))}" style="color:${KLEUR.indigo};font-weight:700;">${esc(v)}</a>`
+  if (veld === "email") return `<a href="mailto:${esc(v)}" style="color:${KLEUR.zwart};font-weight:700;">${esc(v)}</a>`
+  if (veld === "telefoon") return `<a href="tel:${esc(v.replace(/[^\d+]/g, ""))}" style="color:${KLEUR.zwart};font-weight:700;">${esc(v)}</a>`
   if (veld === "datum") return esc(datumLang(v))
   return esc(v)
 }
@@ -121,31 +125,31 @@ export function maakMail(formulier: string, data: Velden, aangemaakt: string, id
 
   const kernBlokken = cfg.kern.length
     ? `<tr><td style="padding:4px 32px 8px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>${cfg.kern
-        .map((k) => `<td width="${Math.floor(100 / cfg.kern.length)}%" valign="top" style="padding:0 4px;"><div style="background:${KLEUR.groen};border-radius:10px;padding:14px 12px;text-align:center;">
-          <div style="font-family:${TEKST};font-size:12px;color:${KLEUR.olijf};text-transform:uppercase;letter-spacing:.8px;font-weight:700;">${LABELS[k]}</div>
-          <div style="font-family:${KOP};font-size:24px;line-height:1.1;color:${KLEUR.indigo};font-weight:600;margin-top:4px;">${d[k] ? esc(k === "datum" ? datumKort(d[k]) : d[k]) : "–"}</div>
+        .map((k) => `<td width="${Math.floor(100 / cfg.kern.length)}%" valign="top" style="padding:0 4px;"><div style="background:${KLEUR.linnen};border-radius:10px;padding:14px 12px;text-align:center;">
+          <div style="font-family:${TEKST};font-size:12px;color:${KLEUR.zwart};text-transform:uppercase;letter-spacing:.8px;font-weight:700;">${LABELS[k]}</div>
+          <div style="font-family:${KOP};font-size:24px;line-height:1.1;color:${KLEUR.zwart};font-weight:600;margin-top:4px;">${d[k] ? esc(k === "datum" ? datumKort(d[k]) : d[k]) : "–"}</div>
         </div></td>`).join("")}</tr></table></td></tr>`
     : ""
 
   const rijen = cfg.details
     .map((k) => `<tr>
-        <td valign="top" style="padding:11px 0;border-bottom:1px solid #e7e3d8;font-family:${TEKST};font-size:14px;color:${KLEUR.grijs};width:38%;">${LABELS[k] ?? esc(k)}</td>
-        <td valign="top" style="padding:11px 0;border-bottom:1px solid #e7e3d8;font-family:${TEKST};font-size:16px;color:${KLEUR.tekst};">${waarde(k, d[k])}</td>
+        <td valign="top" style="padding:11px 0;border-bottom:1px solid ${KLEUR.lijn};font-family:${TEKST};font-size:14px;color:${KLEUR.grijs};width:38%;">${LABELS[k] ?? esc(k)}</td>
+        <td valign="top" style="padding:11px 0;border-bottom:1px solid ${KLEUR.lijn};font-family:${TEKST};font-size:16px;color:${KLEUR.tekst};">${waarde(k, d[k])}</td>
       </tr>`).join("")
 
   const bericht = cfg.bericht && d[cfg.bericht]
     ? `<tr><td style="padding:8px 32px 4px;">
-        <div style="font-family:${KOP};font-size:22px;color:${KLEUR.indigo};text-transform:uppercase;font-weight:600;margin:0 0 8px;">${LABELS[cfg.bericht]}</div>
-        <div style="background:${KLEUR.bone};border-left:4px solid ${KLEUR.rood};border-radius:6px;padding:16px 18px;font-family:${TEKST};font-size:16px;line-height:1.55;color:${KLEUR.tekst};">${esc(d[cfg.bericht]).replace(/\r?\n/g, "<br>")}</div>
+        <div style="font-family:${KOP};font-size:22px;color:${KLEUR.zwart};text-transform:uppercase;font-weight:600;margin:0 0 8px;">${LABELS[cfg.bericht]}</div>
+        <div style="background:${KLEUR.linnen};border-left:4px solid ${KLEUR.pine};border-radius:6px;padding:16px 18px;font-family:${TEKST};font-size:16px;line-height:1.55;color:${KLEUR.tekst};">${esc(d[cfg.bericht]).replace(/\r?\n/g, "<br>")}</div>
       </td></tr>`
     : ""
 
   const knoppen: string[] = []
-  if (d.email) knoppen.push(knop(`mailto:${d.email}?subject=${encodeURIComponent("Re: " + onderwerp)}`, `Antwoord ${esc(voornaam)}`, KLEUR.indigo, KLEUR.wit))
-  if (d.telefoon) knoppen.push(knop(`tel:${d.telefoon.replace(/[^\d+]/g, "")}`, "Bel", KLEUR.rood, KLEUR.wit))
+  if (d.email) knoppen.push(knop(`mailto:${d.email}?subject=${encodeURIComponent("Re: " + onderwerp)}`, `Antwoord ${esc(voornaam)}`, KLEUR.pine, KLEUR.tennis))
+  if (d.telefoon) knoppen.push(knop(`tel:${d.telefoon.replace(/[^\d+]/g, "")}`, "Bel", KLEUR.zwart, KLEUR.wit))
 
   const taalNoot = taal !== "NL"
-    ? `<tr><td style="padding:0 32px 8px;"><div style="background:#fff4d6;border-radius:8px;padding:10px 14px;font-family:${TEKST};font-size:14px;color:${KLEUR.tekst};">Deze aanvraag kwam via de <strong>${TALEN[taal] ?? taal}e</strong> website. Antwoord bij voorkeur in het ${TALEN[taal] ?? taal}.</div></td></tr>`
+    ? `<tr><td style="padding:0 32px 8px;"><div style="background:${KLEUR.zand};border-radius:8px;padding:10px 14px;font-family:${TEKST};font-size:14px;color:${KLEUR.tekst};">Deze aanvraag kwam via de <strong>${TALEN[taal] ?? taal}e</strong> website. Antwoord bij voorkeur in het ${TALEN[taal] ?? taal}.</div></td></tr>`
     : ""
 
   const html = `<!doctype html>
@@ -153,16 +157,15 @@ export function maakMail(formulier: string, data: Velden, aangemaakt: string, id
 <meta name="color-scheme" content="light only"><title>${esc(onderwerp)}</title>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Teko:wght@500;600&display=swap" rel="stylesheet">
 </head>
-<body style="margin:0;padding:0;background:${KLEUR.bone};">
+<body style="margin:0;padding:0;background:${KLEUR.linnen};">
 <div style="display:none;max-height:0;overflow:hidden;">${esc(cfg.intro)}</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${KLEUR.bone};"><tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${KLEUR.linnen};"><tr><td align="center" style="padding:24px 12px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:${KLEUR.wit};border-radius:16px;overflow:hidden;">
-  <tr><td align="center" style="background:${KLEUR.indigo};padding:26px 24px 22px;">
-    <img src="https://www.opperdash.be/assets/img/email-logo.png" width="180" height="55" alt="Opperdash" style="display:block;border:0;">
+  <tr><td align="center" style="background:${KLEUR.zwart};padding:26px 24px 22px;">
+    <img src="https://www.opperdash.be/assets/img/email-logo-wit.png" width="180" height="37" alt="Opperdash" style="display:block;border:0;">
   </td></tr>
-  <tr><td style="height:4px;background:${KLEUR.rood};font-size:0;line-height:0;">&nbsp;</td></tr>
-  <tr><td style="padding:28px 32px 6px;">
-    <div style="font-family:${KOP};font-size:34px;line-height:1;color:${KLEUR.indigo};text-transform:uppercase;font-weight:600;">${esc(cfg.titel)}</div>
+    <tr><td style="padding:28px 32px 6px;">
+    <div style="font-family:${KOP};font-size:34px;line-height:1;color:${KLEUR.zwart};text-transform:uppercase;font-weight:600;">${esc(cfg.titel)}</div>
     <p style="font-family:${TEKST};font-size:15px;color:${KLEUR.grijs};margin:10px 0 14px;">${esc(cfg.intro)}</p>
   </td></tr>
   ${taalNoot}
@@ -170,9 +173,9 @@ export function maakMail(formulier: string, data: Velden, aangemaakt: string, id
   <tr><td style="padding:10px 32px 18px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rijen}</table></td></tr>
   ${bericht}
   <tr><td style="padding:20px 32px 26px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr>${knoppen.join("")}</tr></table></td></tr>
-  <tr><td style="background:${KLEUR.groen};padding:16px 32px;font-family:${TEKST};font-size:12px;line-height:1.6;color:${KLEUR.indigo};">
+  <tr><td style="background:${KLEUR.ecogroen};padding:16px 32px;font-family:${TEKST};font-size:12px;line-height:1.6;color:${KLEUR.zwart};">
     Ontvangen ${esc(tijdstip(aangemaakt))} · formulier <strong>${esc(formulier)}</strong> · taal ${esc(taal)}<br>
-    Antwoorden op deze mail gaan rechtstreeks naar ${d.email ? esc(d.email) : "de afzender"}. <a href="https://app.netlify.com/projects/opperdash/forms" style="color:${KLEUR.indigo};">Alle aanvragen in Netlify</a>${id ? ` · ref. ${esc(id.slice(-6))}` : ""}
+    Antwoorden op deze mail gaan rechtstreeks naar ${d.email ? esc(d.email) : "de afzender"}. <a href="https://app.netlify.com/projects/opperdash/forms" style="color:${KLEUR.zwart};">Alle aanvragen in Netlify</a>${id ? ` · ref. ${esc(id.slice(-6))}` : ""}
   </td></tr>
 </table>
 </td></tr></table>
@@ -231,16 +234,16 @@ function tijdstipTaal(iso: string, locale: string, seconden = false): string {
 
 function rij(label: string, inhoud: string): string {
   return `<tr>
-        <td valign="top" style="padding:11px 0;border-bottom:1px solid #e7e3d8;font-family:${TEKST};font-size:14px;color:${KLEUR.grijs};width:38%;">${esc(label)}</td>
-        <td valign="top" style="padding:11px 0;border-bottom:1px solid #e7e3d8;font-family:${TEKST};font-size:16px;color:${KLEUR.tekst};">${inhoud}</td>
+        <td valign="top" style="padding:11px 0;border-bottom:1px solid ${KLEUR.lijn};font-family:${TEKST};font-size:14px;color:${KLEUR.grijs};width:38%;">${esc(label)}</td>
+        <td valign="top" style="padding:11px 0;border-bottom:1px solid ${KLEUR.lijn};font-family:${TEKST};font-size:16px;color:${KLEUR.tekst};">${inhoud}</td>
       </tr>`
 }
 
 function blokjes(items: [string, string][]): string {
   return `<tr><td style="padding:4px 32px 8px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>${items
-    .map(([l, v]) => `<td width="${Math.floor(100 / items.length)}%" valign="top" style="padding:0 4px;"><div style="background:${KLEUR.groen};border-radius:10px;padding:14px 12px;text-align:center;">
-          <div style="font-family:${TEKST};font-size:12px;color:${KLEUR.olijf};text-transform:uppercase;letter-spacing:.8px;font-weight:700;">${esc(l)}</div>
-          <div style="font-family:${KOP};font-size:24px;line-height:1.1;color:${KLEUR.indigo};font-weight:600;margin-top:4px;">${v ? esc(v) : "–"}</div>
+    .map(([l, v]) => `<td width="${Math.floor(100 / items.length)}%" valign="top" style="padding:0 4px;"><div style="background:${KLEUR.linnen};border-radius:10px;padding:14px 12px;text-align:center;">
+          <div style="font-family:${TEKST};font-size:12px;color:${KLEUR.zwart};text-transform:uppercase;letter-spacing:.8px;font-weight:700;">${esc(l)}</div>
+          <div style="font-family:${KOP};font-size:24px;line-height:1.1;color:${KLEUR.zwart};font-weight:600;margin-top:4px;">${v ? esc(v) : "–"}</div>
         </div></td>`).join("")}</tr></table></td></tr>`
 }
 
@@ -250,16 +253,15 @@ function omhulsel(lang: string, onderwerp: string, voorvertoning: string, inhoud
 <meta name="color-scheme" content="light only"><title>${esc(onderwerp)}</title>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Teko:wght@500;600&display=swap" rel="stylesheet">
 </head>
-<body style="margin:0;padding:0;background:${KLEUR.bone};">
+<body style="margin:0;padding:0;background:${KLEUR.linnen};">
 <div style="display:none;max-height:0;overflow:hidden;">${esc(voorvertoning)}</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${KLEUR.bone};"><tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${KLEUR.linnen};"><tr><td align="center" style="padding:24px 12px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:${KLEUR.wit};border-radius:16px;overflow:hidden;">
-  <tr><td align="center" style="background:${KLEUR.indigo};padding:26px 24px 22px;">
-    <img src="https://www.opperdash.be/assets/img/email-logo.png" width="180" height="55" alt="Opperdash" style="display:block;border:0;">
+  <tr><td align="center" style="background:${KLEUR.zwart};padding:26px 24px 22px;">
+    <img src="https://www.opperdash.be/assets/img/email-logo-wit.png" width="180" height="37" alt="Opperdash" style="display:block;border:0;">
   </td></tr>
-  <tr><td style="height:4px;background:${KLEUR.rood};font-size:0;line-height:0;">&nbsp;</td></tr>
-  ${inhoud}
-  <tr><td style="background:${KLEUR.groen};padding:16px 32px;font-family:${TEKST};font-size:12px;line-height:1.6;color:${KLEUR.indigo};">${voet}</td></tr>
+    ${inhoud}
+  <tr><td style="background:${KLEUR.ecogroen};padding:16px 32px;font-family:${TEKST};font-size:12px;line-height:1.6;color:${KLEUR.zwart};">${voet}</td></tr>
 </table>
 </td></tr></table>
 </body></html>`
@@ -270,8 +272,8 @@ function handtekeningBlok(label: string, aanwezig: boolean, leeg: string): strin
     ? `<img src="cid:${HANDTEKENING_CID}" width="300" alt="${esc(label)}" style="display:inline-block;max-width:100%;height:auto;border:0;">`
     : esc(leeg)
   return `<tr><td style="padding:8px 32px 4px;">
-        <div style="font-family:${KOP};font-size:22px;color:${KLEUR.indigo};text-transform:uppercase;font-weight:600;margin:0 0 8px;">${esc(label)}</div>
-        <div style="background:#fff;border:1px dashed #b9b9cc;border-radius:8px;padding:10px;text-align:center;font-family:${TEKST};font-size:14px;color:${KLEUR.grijs};">${inhoud}</div>
+        <div style="font-family:${KOP};font-size:22px;color:${KLEUR.zwart};text-transform:uppercase;font-weight:600;margin:0 0 8px;">${esc(label)}</div>
+        <div style="background:${KLEUR.wit};border:1px dashed ${KLEUR.stippel};border-radius:8px;padding:10px;text-align:center;font-family:${TEKST};font-size:14px;color:${KLEUR.grijs};">${inhoud}</div>
       </td></tr>`
 }
 
@@ -290,7 +292,7 @@ export function maakTekenMails(data: Velden, aangemaakt: string, id: string, met
   // De handtekening gaat als bijlage (cid) mee: Gmail toont geen data:-beelden in de mail zelf.
   const png = /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(d.handtekening) && d.handtekening.length < 400000 ? d.handtekening : ""
   const bijlagen: Bijlage[] = png ? [{ filename: `handtekening-${bestand}.png`, path: png, cid: HANDTEKENING_CID }] : []
-  const link = (href: string, tekst: string) => `<a href="${esc(href)}" style="color:${KLEUR.indigo};font-weight:700;">${esc(tekst)}</a>`
+  const link = (href: string, tekst: string) => `<a href="${esc(href)}" style="color:${KLEUR.zwart};font-weight:700;">${esc(tekst)}</a>`
 
   // Mail voor Elias
   const onderwerp = ["Offerte getekend", nr, d.klant, d.event, d.bedrag].filter(Boolean).join(" · ") + (taal !== "NL" ? ` [${taal}]` : "")
@@ -311,10 +313,10 @@ export function maakTekenMails(data: Velden, aangemaakt: string, id: string, met
     pdf ? rij("Offerte", link(pdf, "pdf openen")) : "",
     meta.handtekeningUrl ? rij("Handtekening-bestand", link(meta.handtekeningUrl, "png openen")) : "",
   ].join("")
-  const knoppen = d.email ? knop(`mailto:${d.email}?subject=${encodeURIComponent("Re: " + TEKEN.NL.wat(nr, d.event))}`, `Antwoord ${esc(voornaam || "klant")}`, KLEUR.indigo, KLEUR.wit) : ""
+  const knoppen = d.email ? knop(`mailto:${d.email}?subject=${encodeURIComponent("Re: " + TEKEN.NL.wat(nr, d.event))}`, `Antwoord ${esc(voornaam || "klant")}`, KLEUR.pine, KLEUR.tennis) : ""
   const internHtml = omhulsel("nl", onderwerp, intro, `
   <tr><td style="padding:28px 32px 6px;">
-    <div style="font-family:${KOP};font-size:34px;line-height:1;color:${KLEUR.indigo};text-transform:uppercase;font-weight:600;">Offerte getekend</div>
+    <div style="font-family:${KOP};font-size:34px;line-height:1;color:${KLEUR.zwart};text-transform:uppercase;font-weight:600;">Offerte getekend</div>
     <p style="font-family:${TEKST};font-size:15px;color:${KLEUR.grijs};margin:10px 0 14px;">${esc(intro)}</p>
   </td></tr>
   ${blokjes([nr ? ["Offerte", nr] : ["Klant", d.klant], ["Totaal excl. btw", d.bedrag], ["Getekend", getekend]])}
@@ -323,7 +325,7 @@ export function maakTekenMails(data: Velden, aangemaakt: string, id: string, met
   <tr><td style="padding:20px 32px 6px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr>${knoppen}</tr></table></td></tr>
   <tr><td style="padding:0 32px 26px;font-family:${TEKST};font-size:14px;color:${KLEUR.tekst};">Volgende stap: zeg <strong>meeting klaar ${esc(voornaam || d.klant || "[naam]")}</strong>. Dan staat de na-meetingmail met de getekende offerte en het draaiboek als concept klaar${d.email ? ` voor ${esc(d.email)}` : ""}. De klant kreeg nog geen kopie. Daarna start <strong>evenement-bevestigd</strong>.</td></tr>`,
     `Ontvangen ${esc(tijdstip(aangemaakt))} · formulier <strong>offerte-tekenen</strong> · taal ${esc(taal)}<br>
-    Bewaar deze mail als bewijs. De inzending staat ook in <a href="https://app.netlify.com/projects/opperdash/forms" style="color:${KLEUR.indigo};">Netlify</a>${id ? ` · ref. ${esc(id.slice(-6))}` : ""}`)
+    Bewaar deze mail als bewijs. De inzending staat ook in <a href="https://app.netlify.com/projects/opperdash/forms" style="color:${KLEUR.zwart};">Netlify</a>${id ? ` · ref. ${esc(id.slice(-6))}` : ""}`)
   const internTekst = [
     "OFFERTE GETEKEND", "", intro, "",
     nr ? `Offerte: ${nr}` : "", `Klant: ${d.klant || "niet ingevuld"}`, d.event ? `Event: ${d.event}` : "",
