@@ -270,6 +270,10 @@ h1, h2, h3, .hero__kop { overflow-wrap: break-word; hyphens: auto; }
 /* Homepage: tijmfoto, zo ver mogelijk uitgezoomd; het hoofd blijft in beeld */
 .hero--home { min-height: 0; height: min(62vw, calc(100svh - var(--header-h) - 24px)); }
 .hero--home > img { object-position: 50% 25%; }
+/* Desktop: foto naar rechts, links loopt ze over in zwart, zodat de kop naast Elias staat en niet over zijn gezicht */
+@media (min-width: 769px) {
+  .hero--home > img { left: auto; width: 74%; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 34%); mask-image: linear-gradient(90deg, transparent 0, #000 34%); }
+}
 
 /* Volledige foto zonder tekst */
 .beeld { height: clamp(320px, 75vh, 780px); overflow: hidden; }
