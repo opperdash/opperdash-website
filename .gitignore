@@ -1,0 +1,6 @@
+# Lokale Netlify-status en pakketten
+.netlify/
+node_modules/
+# Python-cache
+__pycache__/
+concepten.py

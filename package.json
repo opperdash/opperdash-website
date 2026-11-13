@@ -1,0 +1,10 @@
+{
+  "name": "opperdash-website",
+  "private": true,
+  "type": "module",
+  "description": "Opperdash-website: pagina's uit bouw.py, formuliermails via netlify/functions.",
+  "dependencies": {
+    "@netlify/blobs": "8.1.0",
+    "nodemailer": "6.9.16"
+  }
+}

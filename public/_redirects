@@ -1,0 +1,28 @@
+# Engelse NL-adressen hernoemd naar Nederlands (20 oktober 2026)
+/our-story            /ons-verhaal                   301
+/how-we-do-it         /onze-aanpak                   301
+/contactus            /contact                       301
+/contactus-thank-you  /bedankt                       301
+
+# Oude Odoo-adressen die niet meer bestaan
+/menu                 /catering                      301
+/boek-opperdash       /contact                       301
+/coming-soon          /cases/                        301
+/web/image/website/1/favicon  /favicon.ico          301
+/nl                   /                              301
+/nl/*                 /:splat                        301
+/nl_BE/*              /:splat                        301
+/en_US/*              /en/                           301
+/faq                  /veelgestelde-vragen           301
+/terms                /                              302
+/blog                 /                              302
+/blog/*               /                              302
+/website/info         /                              301
+/website/social/instagram  https://instagram.com/opperdash  301
+/website/social/tiktok     https://tiktok.com/@opperdash.be 301
+/website/social/facebook   https://www.facebook.com/profile.php?id=61572850222575  301
+/website/social/linkedin   https://www.linkedin.com/in/elias-nys-a01702294/  301
+
+# Taalspecifieke 404-pagina's
+/en/*                 /en/404.html                   404
+/fr/*                 /fr/404.html                   404
