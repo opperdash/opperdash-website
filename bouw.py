@@ -949,17 +949,17 @@ OFF_STAPPEN = {
     ("Je aanvraag", "Vul het formulier in. Vertel me de datum, de locatie, het aantal gasten en het soort moment."),
     ("Binnen 24 uur", "Ik neem binnen de 24 uur contact met je op."),
     ("Een voorstel op maat", "Ik luister naar je wensen, je gasten en het moment, en doe een voorstel dat daarbij past."),
-    ("Zorgeloos", "Op de dag zelf open je enkel de deuren. Ik voorzie alles, het servies en zelfs meubelen als dat nodig is.")]),
+    ("Zorgeloos", "Op de dag zelf open je enkel de deuren. Ik voorzie alles, van servies tot meubilair.")]),
  "en": ("Next steps", [
     ("Your request", "Fill in the form. Tell me the date, the location, the number of guests and the kind of occasion."),
     ("Within 24 hours", "I will get back to you within 24 hours."),
     ("A tailored proposal", "I listen to your wishes, your guests and the occasion, and make a proposal that fits."),
-    ("Carefree", "On the day itself, all you do is open the doors. I provide everything, the tableware and even furniture if needed.")]),
+    ("Carefree", "On the day itself, all you do is open the doors. I provide everything, from tableware to furniture.")]),
  "fr": ("La suite", [
     ("Votre demande", "Remplissez le formulaire. Indiquez-moi la date, le lieu, le nombre d’invités et le type d’événement."),
     ("Dans les 24 heures", "Je vous recontacte dans les 24 heures."),
     ("Une proposition sur mesure", "J’écoute vos souhaits, vos invités et le moment, puis je fais une proposition adaptée."),
-    ("Sans souci", "Le jour même, vous n’avez qu’à ouvrir les portes. Je fournis tout, la vaisselle et même le mobilier si nécessaire.")]),
+    ("Sans souci", "Le jour même, vous n’avez qu’à ouvrir les portes. Je fournis tout, de la vaisselle au mobilier.")]),
 }
 
 
