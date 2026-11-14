@@ -670,17 +670,24 @@ AANPAK = {
                ("Ma propre équipe formée", "Une qualité constante, même pour de grandes quantités.")],
     alt_buf="Buffet de plats méditerranéens d’Opperdash", c_kop="Références", c_tekst="Les coulisses de quelques événements que j’ai servis : pour qui j’ai cuisiné, ce qui s’est retrouvé dans l’assiette et comment je m’y suis pris.", c_knop="Références", alt_cases="Deux plats Opperdash remis à des invités au food truck", k3="Buffet", p3="Un buffet culinaire aux influences méditerranéennes, en céramique et avec de vrais couverts.", b_cat="Traiteur"),
 }
-# Wat Opperdash anders maakt (Mijn aanpak). Feiten uit Mijn verhaal: culinair vakmanschap en gezond eten,
-# niets gefrituurd, geen geraffineerde suiker of olie, geen additieven, keramiek met echt bestek.
+# Waarom mensen voor Opperdash kiezen (Mijn aanpak). Vier punten van Elias (14/11/2026), elk met een eigen icoon:
+# seizoen en lokaal, keramiek met echt bestek, zorgeloos, vast aanspreekpunt.
 ANDERS = {
- "nl": dict(kop="Culinair vakmanschap. Gezond eten.", alt="Een gerecht van Opperdash in een donkere keramische kom",
-            punten=["Niets gefrituurd", "Geen geraffineerde suiker of olie", "Geen additieven", "Op keramiek met echt bestek"]),
- "en": dict(kop="Culinary craft. Healthy food.", alt="An Opperdash dish in a dark ceramic bowl",
-            punten=["Nothing deep-fried", "No refined sugar or oils", "No additives", "On ceramic with real cutlery"]),
- "fr": dict(kop="Savoir-faire culinaire. Cuisine saine.", alt="Un plat d’Opperdash dans un bol en céramique foncée",
-            punten=["Aucune friture", "Ni sucre ni huile raffinés", "Sans additifs", "En céramique avec de vrais couverts"]),
+ "nl": dict(kop="Waarom kiezen mensen voor Opperdash?", alt="Een gerecht van Opperdash in een donkere keramische kom",
+            punten=["Seizoensgebonden en lokale ingrediënten", "Altijd op keramiek met echt bestek", "Jij opent de deuren, ik regel de rest", "Ik ben je vaste aanspreekpunt"]),
+ "en": dict(kop="Why do people choose Opperdash?", alt="An Opperdash dish in a dark ceramic bowl",
+            punten=["Seasonal and local ingredients", "Always on ceramic with real cutlery", "You open the doors, I take care of the rest", "I am your single point of contact"]),
+ "fr": dict(kop="Pourquoi choisit-on Opperdash ?", alt="Un plat d’Opperdash dans un bol en céramique foncée",
+            punten=["Des ingrédients locaux et de saison", "Toujours en céramique avec de vrais couverts", "Vous ouvrez les portes, je m’occupe du reste", "Je suis votre interlocuteur unique"]),
 }
-VINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>'
+_ICOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{}</svg>'
+# Zelfde volgorde als de punten: blad, bestek, open deur, persoon.
+ANDERS_ICONEN = [
+    _ICOON.format('<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>'),
+    _ICOON.format('<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>'),
+    _ICOON.format('<path d="M11 20H2"/><path d="M11 4.562v16.157a1 1 0 0 0 1.242.97L19 20V5.562a2 2 0 0 0-1.515-1.94l-4-1A2 2 0 0 0 11 4.561z"/><path d="M11 4H8a2 2 0 0 0-2 2v14"/><path d="M14 12h.01"/><path d="M22 20h-3"/>'),
+    _ICOON.format('<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>'),
+]
 
 
 def keuze_blok(L, klasse="sectie"):
@@ -706,7 +713,7 @@ def keuze_blok(L, klasse="sectie"):
 
 def anders_blok(L):
     a = ANDERS[L]
-    punten = "".join(f"<li>{VINK}<span>{x}</span></li>" for x in a["punten"])
+    punten = "".join(f"<li>{icoon}<span>{x}</span></li>" for icoon, x in zip(ANDERS_ICONEN, a["punten"]))
     return f'''<section class="sectie anders">
   <div class="container">
     <div class="anders__vlak">
@@ -722,7 +729,6 @@ for L in TALEN:
     t = AANPAK[L]
     stappen = "".join(f'<li class="stap"><span class="stap__nr" aria-hidden="true">{i}</span><h3>{a}</h3><p>{b}</p></li>'
                       for i, (a, b) in enumerate(t["stappen"], 1))
-    voordelen = "".join(f'<li><h3>{a}</h3><p>{b}</p></li>' for a, b in t["voordelen"])
     pagina("aanpak", L, t["titel"], t["desc"], f'''
 <section class="hero">
   {img("aanpak-hero-bord.webp", t["alt_bord"], 1920, 1280, lazy=False)}
@@ -742,14 +748,6 @@ for L in TALEN:
 </section>
 
 <div class="beeld">{img("aanpak-sfeer.webp", t["alt_sfeer"], 1698, 1132)}</div>
-
-<section class="sectie sectie--zand">
-  <div class="container">
-    <h2>{t["v_titel"]}</h2>
-    <ul class="voordeel-rijen">{voordelen}</ul>
-    <a class="knop knop--groen" href="{url("contact", L)}">{t["boek"]}</a>
-  </div>
-</section>
 
 <section class="sectie sectie--linnen">
   <div class="container duo">

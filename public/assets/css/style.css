@@ -723,14 +723,14 @@ main .duo__beeld.onthul.is-zichtbaar { transform: none; }
 }
 .anders__bord { width: clamp(220px, 30vw, 440px); aspect-ratio: 1; border-radius: 50%; overflow: hidden; }
 .anders__bord img { width: 100%; height: 100%; object-fit: cover; object-position: 46% 50%; will-change: transform; }
-.anders__punten { list-style: none; padding: 0; margin: clamp(40px, 5vw, 72px) 0 0; display: flex; flex-wrap: wrap; gap: 16px clamp(28px, 4vw, 56px); }
+.anders__punten { list-style: none; padding: 0; margin: clamp(40px, 5vw, 72px) 0 0; display: grid; grid-template-columns: repeat(2, max-content); gap: 20px clamp(40px, 6vw, 96px); }
 .anders__punten li { display: flex; align-items: center; gap: 12px; font-family: "Teko", sans-serif; font-size: clamp(1.4rem, 1.9vw, 1.75rem); font-weight: 500; line-height: 1; text-transform: uppercase; padding-top: 4px; }
 .anders__punten svg { width: 26px; height: 26px; flex: none; color: var(--pine); margin-top: -4px; }
 @media (max-width: 800px) {
   .anders__vlak { grid-template-columns: 1fr; gap: 28px; }
   .anders__kop { font-size: clamp(2.6rem, 14vw, 4.4rem); }
   .anders__bord { width: min(72vw, 340px); justify-self: end; }
-  .anders__punten { flex-direction: column; }
+  .anders__punten { grid-template-columns: 1fr; gap: 16px; }
 }
 
 /* ===== Scroll-parallax op de grote foto's (site.js zet de beweging; zonder JS of met minder beweging staat alles stil) ===== */
