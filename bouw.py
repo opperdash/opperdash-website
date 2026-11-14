@@ -692,11 +692,12 @@ ANDERS_ICONEN = [
 
 
 def keuze_blok(L, klasse="sectie"):
-    """Twee fotokaarten: foodtruck en catering (home)."""
+    """Twee fotokaarten onder de titel Aanbod: foodtruck en catering (home)."""
     t = HOME[L]
     return f'''<section class="{klasse}">
   <div class="container">
-    <div class="keuze">
+    <h2 class="kop-groot">{C[L]["f_aanbod"]}</h2>
+    <div class="keuze keuze--onder-kop">
       <article class="keuze__item">
         <a class="keuze__beeld" href="{url("foodtruck", L)}" tabindex="-1" aria-hidden="true">{img("foodtruck-hero.webp", t["alt_k_truck"], 1698, 1132, sizes="(max-width: 800px) 100vw, 50vw")}</a>
         <p>{t["k_truck"]}</p>
@@ -1309,6 +1310,7 @@ for L in TALEN:
     <div class="knoppen cases-knop"><a class="knop" href="{url("cases", L)}">{AANPAK[L]["c_knop"]}</a></div>
   </div>
 </section>
+{slotband(L)}
 ''', ogbeeld="og-home.jpg", ogalt=t["alt_hero"], schema=[org(L), {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Opperdash",
                       "inLanguage": ["nl-BE", "en", "fr-BE"], "publisher": {"@id": ORG_ID}}])
 
