@@ -34,7 +34,7 @@ TOON = (KROMMEN[0] + KROMMEN[1]) / 2            # neutrale toonkromme
 TINT = [np.where(TOON > 0.03, k / np.maximum(TOON, 1e-6), 1.0) for k in KROMMEN]   # warme tint per kanaal
 
 KWALITEIT = 70            # webp-kwaliteit: houdt 94 tot 98% van de korrel en beperkt het gewicht
-KORREL = 14.0 / 255       # sterkte van de korrel in de middentonen
+KORREL = 7.0 / 255        # sterkte van de korrel in de middentonen (helft van het voorbeeld: Elias, 14/11/2026)
 REF_BREEDTE = 1920        # de korrel is gemeten op een foto van 1920 px breed
 WIT_VOOR, WIT_NA = 0.958, 0.854   # blauw/rood in het wit van de voorbeeldfoto, voor en na
 MAX_WARM = 1.3            # heel koele foto's niet verder dan dit opwarmen
