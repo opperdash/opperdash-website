@@ -692,7 +692,7 @@ ANDERS_ICONEN = [
 
 
 def keuze_blok(L, klasse="sectie"):
-    """Twee fotokaarten: foodtruck en catering (home en Mijn aanpak)."""
+    """Twee fotokaarten: foodtruck en catering (home)."""
     t = HOME[L]
     return f'''<section class="{klasse}">
   <div class="container">
@@ -760,8 +760,7 @@ for L in TALEN:
     </div>
   </div>
 </section>
-
-{keuze_blok(L)}
+{slotband(L)}
 ''', hero="aanpak-hero-bord.webp", ogbeeld="og-aanpak.jpg", ogalt=t["alt_hero"], schema=[breadcrumbs("aanpak", L, t["crumb"])])
 
 # ============================================================ ONS VERHAAL
