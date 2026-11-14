@@ -34,7 +34,8 @@ TOON = (KROMMEN[0] + KROMMEN[1]) / 2            # neutrale toonkromme
 TINT = [np.where(TOON > 0.03, k / np.maximum(TOON, 1e-6), 1.0) for k in KROMMEN]   # warme tint per kanaal
 
 KWALITEIT = 70            # webp-kwaliteit: houdt 94 tot 98% van de korrel en beperkt het gewicht
-KORREL = 7.0 / 255        # sterkte van de korrel in de middentonen (helft van het voorbeeld: Elias, 14/11/2026)
+KORREL = 3.7 / 255        # sterkte van de korrel in de middentonen (afgesteld op het korrelvoorbeeld van Elias, 14/11/2026)
+KORREL_ZACHT = 1.5        # verzachting van de korrel in px (bij 1920 px breed): hoger = grover en zachter
 REF_BREEDTE = 1920        # de korrel is gemeten op een foto van 1920 px breed
 WIT_VOOR, WIT_NA = 0.958, 0.854   # blauw/rood in het wit van de voorbeeldfoto, voor en na
 MAX_WARM = 1.3            # heel koele foto's niet verder dan dit opwarmen
@@ -59,9 +60,10 @@ def korrel(img, naam):
     # Kleinere foto's krijgen dezelfde korrel, mee verkleind: zo oogt ze op elke foto even fijn.
     wn = max(w, REF_BREEDTE); hn = round(wn * h / w)
     n = rng.standard_normal((hn, wn))
-    k = np.exp(-np.arange(-2, 3) ** 2 / (2 * 0.55 ** 2)); k /= k.sum()   # lichte verzachting, zoals echte korrel
-    n = sum(kk * np.roll(n, d, 0) for kk, d in zip(k, range(-2, 3)))
-    n = sum(kk * np.roll(n, d, 1) for kk, d in zip(k, range(-2, 3)))
+    r = max(2, int(np.ceil(3 * KORREL_ZACHT)))
+    k = np.exp(-np.arange(-r, r + 1) ** 2 / (2 * KORREL_ZACHT ** 2)); k /= k.sum()   # verzachting: bepaalt hoe grof de korrel is
+    n = sum(kk * np.roll(n, d, 0) for kk, d in zip(k, range(-r, r + 1)))
+    n = sum(kk * np.roll(n, d, 1) for kk, d in zip(k, range(-r, r + 1)))
     n /= n.std()
     if (wn, hn) != (w, h):
         n = np.asarray(Image.fromarray(n.astype(np.float32), mode="F").resize((w, h), Image.BOX), dtype=np.float64)
