@@ -1311,20 +1311,6 @@ for L in TALEN:
     <div class="knoppen cases-knop"><a class="knop" href="{url("cases", L)}">{AANPAK[L]["c_knop"]}</a></div>
   </div>
 </section>
-
-<section class="sectie sectie--split sectie--zand">
-  <div class="duo">
-    <div class="duo__tekst">
-      <h2>{t["k4"]}</h2>
-      <p>{t["p4"]}</p>
-      <div class="knoppen">
-        <a class="knop knop--klein" href="{url("foodtruck", L)}">{t["b_truck"]}</a>
-        <a class="knop knop--salie knop--klein" href="{url("catering", L)}">{t["b_cat"]}</a>
-      </div>
-    </div>
-    <div class="duo__beeld">{img("home-bedrijven.webp", t["alt_bedr"], 962, 641)}</div>
-  </div>
-</section>
 ''', ogbeeld="og-home.jpg", ogalt=t["alt_hero"], schema=[org(L), {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Opperdash",
                       "inLanguage": ["nl-BE", "en", "fr-BE"], "publisher": {"@id": ORG_ID}}])
 
