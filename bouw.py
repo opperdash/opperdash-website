@@ -239,11 +239,22 @@ def versie(pad):
         return hashlib.md5(f.read()).hexdigest()[:8]
 
 
+_BEELD_VERSIE = {}
+
+
+def beeld(naam):
+    """Adres van een foto met een korte hash erachter. Wijzigt de foto, dan wijzigt het adres
+    en laden browsers meteen de nieuwe versie in plaats van een week de oude te tonen."""
+    if naam not in _BEELD_VERSIE:
+        _BEELD_VERSIE[naam] = versie("assets/img/" + naam)
+    return f"/assets/img/{naam}?v={_BEELD_VERSIE[naam]}"
+
+
 def srcset(naam, w):
     """Geeft srcset-tekst terug als er een lichtere gsm-versie (-m.webp, 960 px) bestaat."""
     m = naam.replace(".webp", "-m.webp")
     if os.path.exists(os.path.join(IMG_DIR, m)):
-        return f"/assets/img/{m} 960w, /assets/img/{naam} {w}w"
+        return f"{beeld(m)} 960w, {beeld(naam)} {w}w"
     return ""
 
 
@@ -251,7 +262,7 @@ def img(naam, alt, w, h, lazy=True, sizes="100vw"):
     extra = ' loading="lazy" decoding="async"' if lazy else ' fetchpriority="high"'
     ss = srcset(naam, w)
     ss = f' srcset="{ss}" sizes="{sizes}"' if ss else ""
-    return f'<img src="/assets/img/{naam}"{ss} alt="{alt}" width="{w}" height="{h}"{extra}>'
+    return f'<img src="{beeld(naam)}"{ss} alt="{alt}" width="{w}" height="{h}"{extra}>'
 
 
 def met_punt(html):
@@ -280,7 +291,7 @@ def pagina(page, L, titel, beschrijving, inhoud, index=True, schema=None, ogbeel
     if hero:
         ss = srcset(hero, 1920)
         extra = f' imagesrcset="{ss}" imagesizes="100vw"' if ss else ""
-        preload = f'\n<link rel="preload" as="image" href="/assets/img/{hero}"{extra} fetchpriority="high">'
+        preload = f'\n<link rel="preload" as="image" href="{beeld(hero)}"{extra} fetchpriority="high">'
         # Wazige mini-versie (-p.webp, 32 px) als achtergrond, zodat de hero niet donker staat terwijl de foto laadt.
         p = os.path.join(IMG_DIR, hero.replace(".webp", "-p.webp"))
         if os.path.exists(p):
