@@ -629,7 +629,7 @@ AANPAK = {
     crumb="Mijn aanpak", alt_hero="Een kok van Opperdash dresseert gerechten op keramiek", alt_bord="Een gerecht van Opperdash met bulgur en rodekoolsla op een keramisch bord", h1="Zo pak ik het aan.", lead="Eerst een gesprek, dan een menu op maat. Op de dag zelf breng ik servies en glazen mee en laat ik alles proper achter.", k1="Zo ga ik te werk",
     stappen=[("Eerst een gesprek", "Ik luister naar je wensen, je gasten en het moment."),
              ("Menu en offerte op maat", "Je krijgt een menu en een offerte op maat. Hapjes, voorgerecht en hoofdgerecht, of enkel een sterk hoofdgerecht? Dat bespreken we samen."),
-             ("Zorgeloos", "Op de dag zelf breng ik alles mee, van servies tot meubilair, en laat ik alles proper achter.")],
+             ("Zorgeloos", "Op de dag zelf open je enkel de deuren en voorzie je elektriciteit. Ik zorg voor al de rest, van servies tot eventueel meubilair, en laat alles proper achter.")],
     boek="Boek Opperdash", alt_sfeer="Menukaart van Opperdash tussen verse tomaten en basilicum",
     alt_truck="Elias Nys kookt in de foodtruck van Opperdash", k2="Foodtruck", p2="Voedzame culinaire gerechten, vers geserveerd vanuit de foodtruck.", b_truck="Foodtruck",
     v_titel="Voordelen van werken<br>met Opperdash",
@@ -644,7 +644,7 @@ AANPAK = {
     crumb="How I work", alt_hero="An Opperdash cook plating dishes on ceramic", alt_bord="An Opperdash dish with bulgur and red cabbage slaw on a ceramic plate", h1="This is how I work.", lead="First a conversation, then a tailored menu. On the day itself I bring the tableware and glasses and leave everything clean.", k1="How I work",
     stappen=[("First a conversation", "I listen to your wishes, your guests and the occasion."),
              ("A tailored menu and quote", "You receive a menu and a quote made to measure. Appetisers, starter and main course, or one strong main course? We decide together."),
-             ("Carefree", "On the day itself I bring everything, from tableware to furniture, and leave everything clean.")],
+             ("Carefree", "On the day itself, all you do is open the doors and provide electricity. I take care of everything else, from tableware to furniture if needed, and leave everything clean.")],
     boek="Book Opperdash", alt_sfeer="Opperdash menu card among fresh tomatoes and basil",
     alt_truck="Elias Nys cooking in the Opperdash food truck", k2="Food truck", p2="Nourishing culinary dishes, served fresh from the food truck.", b_truck="Food truck",
     v_titel="Why work<br>with Opperdash",
@@ -659,7 +659,7 @@ AANPAK = {
     crumb="Mon approche", alt_hero="Un cuisinier d’Opperdash dresse des plats en céramique", alt_bord="Un plat d’Opperdash avec boulgour et salade de chou rouge dans une assiette en céramique", h1="Voilà comment je travaille.", lead="D’abord un échange, puis un menu sur mesure. Le jour même, j’apporte la vaisselle et les verres, et je laisse tout propre derrière moi.", k1="Ma façon de travailler",
     stappen=[("D’abord un échange", "J’écoute vos souhaits, vos invités et le moment."),
              ("Un menu et un devis sur mesure", "Vous recevez un menu et un devis sur mesure. Bouchées, entrée et plat, ou uniquement un plat principal fort ? Nous en discutons ensemble."),
-             ("Sans souci", "Le jour même, j’apporte tout, de la vaisselle au mobilier, et je laisse tout propre derrière moi.")],
+             ("Sans souci", "Le jour même, vous n’avez qu’à ouvrir les portes et à prévoir l’électricité. Je m’occupe de tout le reste, de la vaisselle au mobilier si nécessaire, et je laisse tout propre derrière moi.")],
     boek="Réservez", alt_sfeer="Carte du menu Opperdash parmi des tomates fraîches et du basilic",
     alt_truck="Elias Nys cuisine dans le food truck Opperdash", k2="Food truck", p2="Des plats culinaires et nourrissants, servis frais depuis le food truck.", b_truck="Food truck",
     v_titel="Les avantages<br>d’Opperdash",
@@ -949,17 +949,17 @@ OFF_STAPPEN = {
     ("Je aanvraag", "Vul het formulier in. Vertel me de datum, de locatie, het aantal gasten en het soort moment."),
     ("Binnen 24 uur", "Ik neem binnen de 24 uur contact met je op."),
     ("Een voorstel op maat", "Ik luister naar je wensen, je gasten en het moment, en doe een voorstel dat daarbij past."),
-    ("Zorgeloos", "Op de dag zelf open je enkel de deuren. Ik voorzie alles, van servies tot meubilair.")]),
+    ("Zorgeloos", "Op de dag zelf open je enkel de deuren en voorzie je elektriciteit. Ik zorg voor al de rest, van servies tot eventueel meubilair.")]),
  "en": ("Next steps", [
     ("Your request", "Fill in the form. Tell me the date, the location, the number of guests and the kind of occasion."),
     ("Within 24 hours", "I will get back to you within 24 hours."),
     ("A tailored proposal", "I listen to your wishes, your guests and the occasion, and make a proposal that fits."),
-    ("Carefree", "On the day itself, all you do is open the doors. I provide everything, from tableware to furniture.")]),
+    ("Carefree", "On the day itself, all you do is open the doors and provide electricity. I take care of everything else, from tableware to furniture if needed.")]),
  "fr": ("La suite", [
     ("Votre demande", "Remplissez le formulaire. Indiquez-moi la date, le lieu, le nombre d’invités et le type d’événement."),
     ("Dans les 24 heures", "Je vous recontacte dans les 24 heures."),
     ("Une proposition sur mesure", "J’écoute vos souhaits, vos invités et le moment, puis je fais une proposition adaptée."),
-    ("Sans souci", "Le jour même, vous n’avez qu’à ouvrir les portes. Je fournis tout, de la vaisselle au mobilier.")]),
+    ("Sans souci", "Le jour même, vous n’avez qu’à ouvrir les portes et à prévoir l’électricité. Je m’occupe de tout le reste, de la vaisselle au mobilier si nécessaire.")]),
 }
 
 
