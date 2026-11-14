@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/teko-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=70eff89e">
+<link rel="stylesheet" href="/assets/css/style.css?v=864a1e85">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.opperdash.be/fr/"}, {"@type": "ListItem", "position": 2, "name": "Réserver le food truck", "item": "https://www.opperdash.be/fr/devis-food-truck"}]}]}</script>
 </head>
 <body>
@@ -45,7 +45,7 @@
   <div class="header__binnen">
     <nav class="nav" aria-label="Menu principal"><a href="/fr/notre-histoire">Mon histoire</a><a href="/fr/food-truck">Food truck</a><a href="/fr/traiteur">Traiteur</a><a href="/fr/notre-approche">Mon approche</a></nav>
     <a class="logo" href="/fr/" aria-label="Opperdash, retour à l’accueil"><img src="/assets/img/logo-zwart.svg" alt="Opperdash" width="195" height="40"></a>
-    <div class="header__rechts"><details class="taal"><summary aria-label="Choisir la langue: FR">FR</summary><nav class="taal__lijst" aria-label="Choisir la langue"><a href="/offerte-aanvragen-foodtruck" hreflang="nl-BE" lang="nl-BE">NL</a><a href="/en/quote-food-truck" hreflang="en" lang="en">EN</a></nav></details><a class="knop knop--groen knop--klein" href="/fr/devis-traiteur">Devis gratuit</a></div>
+    <div class="header__rechts"><details class="taal"><summary aria-label="Choisir la langue: FR">FR</summary><nav class="taal__lijst" aria-label="Choisir la langue"><a href="/offerte-aanvragen-foodtruck" hreflang="nl-BE" lang="nl-BE">NL</a><a href="/en/quote-food-truck" hreflang="en" lang="en">EN</a></nav></details><a class="knop knop--groen knop--klein" href="/fr/devis-traiteur">Devis gratuit</a><span class="header__streep" aria-hidden="true"></span><a class="header__contact" href="/fr/contact">Contact</a></div>
     <button class="menu-knop" aria-label="Ouvrir le menu" data-open-label="Ouvrir le menu" data-close-label="Fermer le menu" aria-expanded="false" aria-controls="mobiel-menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>
     </button>
@@ -60,23 +60,29 @@
   </div>
 </header>
 <main id="inhoud">
-<section class="sectie sectie--zwart">
-  <div class="container midden">
-    <h1>Réserver le food truck.</h1>
-    <p>Demandez une proposition sur mesure pour votre événement. Je vous recontacte dans les 24 heures.</p>
-  </div>
-</section>
-<section class="sectie">
+<section class="sectie sectie--linnen offerte">
   <div class="container">
-    <h2 class="visueel-verborgen">Formulaire de réservation food truck</h2>
-    <form class="formulier" name="offerte-foodtruck" method="POST" action="/fr/merci" data-netlify="true" netlify-honeypot="bot-field">
+    <div class="offerte__kop">
+      <h1>Réserver le food truck.</h1>
+      <p>Demandez une proposition sur mesure pour votre événement. Je vous recontacte dans les 24 heures.</p>
+    </div>
+    <div class="offerte__raster">
+      <div class="offerte__form">
+        <h2 class="visueel-verborgen">Formulaire de réservation food truck</h2>
+        <form class="formulier" name="offerte-foodtruck" method="POST" action="/fr/merci" data-netlify="true" netlify-honeypot="bot-field">
   <input type="hidden" name="form-name" value="offerte-foodtruck">
   <input type="hidden" name="subject" value="Nieuwe aanvraag foodtruck via opperdash.be (FR)">
   <input type="hidden" name="taal" value="FR">
   <p class="verborgen"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
   <div><label for="naam">Prénom et nom <span class="verplicht" aria-hidden="true">*</span></label><input id="naam" name="naam" type="text" required autocomplete="name"></div><div><label for="telefoon">Téléphone</label><input id="telefoon" name="telefoon" type="tel" autocomplete="tel"></div><div><label for="email">Votre e-mail <span class="verplicht" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required autocomplete="email"></div><div><label for="bedrijf">Votre entreprise</label><input id="bedrijf" name="bedrijf" type="text" autocomplete="organization"></div><div><label for="datum">Date de l’événement</label><input id="datum" name="datum" type="date"></div><div><label for="locatie">Lieu</label><input id="locatie" name="locatie" type="text"></div><div><label for="aantal_personen">Nombre de personnes</label><input id="aantal_personen" name="aantal_personen" type="number"></div><div><label for="naam_event">Nom de l’événement <span class="verplicht" aria-hidden="true">*</span></label><input id="naam_event" name="naam_event" type="text" required></div><div class="vol"><label for="uitleg">Quelques détails <span class="verplicht" aria-hidden="true">*</span></label><textarea id="uitleg" name="uitleg" required placeholder="Bonjour ! Nous cherchons un food truck pour notre anniversaire, mariage ou festival en soirée."></textarea></div>
-  <div class="vol midden"><button class="knop knop--vol" type="submit">Envoyer</button></div>
+  <div class="vol midden formulier__verstuur"><button class="knop knop--groen" type="submit">Envoyer</button></div>
 </form>
+      </div>
+      <aside class="offerte__stappen">
+        <h2 class="kop-klein">La suite.</h2>
+        <ol class="volgorde"><li><span class="volgorde__nr" aria-hidden="true">1</span><div><h3>Votre demande</h3><p>Remplissez le formulaire. Indiquez-moi la date, le lieu, le nombre d’invités et le type d’événement.</p></div></li><li><span class="volgorde__nr" aria-hidden="true">2</span><div><h3>Dans les 24 heures</h3><p>Je vous recontacte dans les 24 heures.</p></div></li><li><span class="volgorde__nr" aria-hidden="true">3</span><div><h3>Une proposition sur mesure</h3><p>J’écoute vos souhaits, vos invités et le moment, puis je fais une proposition adaptée.</p></div></li><li><span class="volgorde__nr" aria-hidden="true">4</span><div><h3>Sans souci</h3><p>Le jour même, vous n’avez qu’à ouvrir les portes et à prévoir l’électricité. Je m’occupe de tout le reste, de la vaisselle au mobilier si nécessaire.</p></div></li></ol>
+      </aside>
+    </div>
   </div>
 </section>
 </main>
@@ -112,6 +118,6 @@
     <button type="button" class="knop knop--klein" data-cookies="nee">Non merci</button>
   </div>
 </div>
-<script src="/assets/js/site.js?v=ee272ef0" defer></script>
+<script src="/assets/js/site.js?v=94ea8a85" defer></script>
 </body>
 </html>

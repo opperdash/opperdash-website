@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/teko-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=70eff89e">
+<link rel="stylesheet" href="/assets/css/style.css?v=864a1e85">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opperdash.be/"}, {"@type": "ListItem", "position": 2, "name": "Offerte catering", "item": "https://www.opperdash.be/offerte-aanvragen-catering"}]}]}</script>
 </head>
 <body>
@@ -45,7 +45,7 @@
   <div class="header__binnen">
     <nav class="nav" aria-label="Hoofdmenu"><a href="/ons-verhaal">Mijn verhaal</a><a href="/foodtruck">Foodtruck</a><a href="/catering">Catering</a><a href="/onze-aanpak">Mijn aanpak</a></nav>
     <a class="logo" href="/" aria-label="Opperdash, naar de startpagina"><img src="/assets/img/logo-zwart.svg" alt="Opperdash" width="195" height="40"></a>
-    <div class="header__rechts"><details class="taal"><summary aria-label="Taal kiezen: NL">NL</summary><nav class="taal__lijst" aria-label="Taal kiezen"><a href="/en/quote-catering" hreflang="en" lang="en">EN</a><a href="/fr/devis-traiteur" hreflang="fr-BE" lang="fr-BE">FR</a></nav></details><a class="knop knop--groen knop--klein" href="/offerte-aanvragen-catering" aria-current="page">Gratis offerte</a></div>
+    <div class="header__rechts"><details class="taal"><summary aria-label="Taal kiezen: NL">NL</summary><nav class="taal__lijst" aria-label="Taal kiezen"><a href="/en/quote-catering" hreflang="en" lang="en">EN</a><a href="/fr/devis-traiteur" hreflang="fr-BE" lang="fr-BE">FR</a></nav></details><a class="knop knop--groen knop--klein" href="/offerte-aanvragen-catering" aria-current="page">Gratis offerte</a><span class="header__streep" aria-hidden="true"></span><a class="header__contact" href="/contact">Contact</a></div>
     <button class="menu-knop" aria-label="Menu openen" data-open-label="Menu openen" data-close-label="Menu sluiten" aria-expanded="false" aria-controls="mobiel-menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>
     </button>
@@ -60,23 +60,29 @@
   </div>
 </header>
 <main id="inhoud">
-<section class="sectie sectie--zwart">
-  <div class="container midden">
-    <h1>Offerte aanvragen.</h1>
-    <p>Vertel me wat je plant: de datum, de locatie, het aantal gasten en het soort moment. Ik neem binnen de 24 uur contact met je op.</p>
-  </div>
-</section>
-<section class="sectie">
+<section class="sectie sectie--linnen offerte">
   <div class="container">
-    <h2 class="visueel-verborgen">Offerteformulier catering</h2>
-    <form class="formulier" name="offerte-catering" method="POST" action="/bedankt" data-netlify="true" netlify-honeypot="bot-field">
+    <div class="offerte__kop">
+      <h1>Offerte aanvragen.</h1>
+      <p>Vertel me wat je plant: de datum, de locatie, het aantal gasten en het soort moment. Ik neem binnen de 24 uur contact met je op.</p>
+    </div>
+    <div class="offerte__raster">
+      <div class="offerte__form">
+        <h2 class="visueel-verborgen">Offerteformulier catering</h2>
+        <form class="formulier" name="offerte-catering" method="POST" action="/bedankt" data-netlify="true" netlify-honeypot="bot-field">
   <input type="hidden" name="form-name" value="offerte-catering">
   <input type="hidden" name="subject" value="Nieuwe offerteaanvraag catering via opperdash.be (NL)">
   <input type="hidden" name="taal" value="NL">
   <p class="verborgen"><label>Niet invullen: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
   <div><label for="naam">Voornaam + Naam <span class="verplicht" aria-hidden="true">*</span></label><input id="naam" name="naam" type="text" required autocomplete="name"></div><div><label for="telefoon">Telefoonnummer <span class="verplicht" aria-hidden="true">*</span></label><input id="telefoon" name="telefoon" type="tel" required autocomplete="tel"></div><div><label for="email">Je e-mail <span class="verplicht" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required autocomplete="email"></div><div><label for="bedrijf">Je bedrijf</label><input id="bedrijf" name="bedrijf" type="text" autocomplete="organization"></div><div><label for="datum">Datum event</label><input id="datum" name="datum" type="date"></div><div><label for="locatie">Locatie <span class="verplicht" aria-hidden="true">*</span></label><input id="locatie" name="locatie" type="text" required></div><div><label for="aantal_personen">Aantal personen <span class="verplicht" aria-hidden="true">*</span></label><input id="aantal_personen" name="aantal_personen" type="number" required></div><div><label for="naam_event">Naam event <span class="verplicht" aria-hidden="true">*</span></label><input id="naam_event" name="naam_event" type="text" required></div><div class="vol"><label for="uitleg">Beetje uitleg <span class="verplicht" aria-hidden="true">*</span></label><textarea id="uitleg" name="uitleg" required placeholder="Hey! Wij zoeken voor ons bedrijfsevenement een culinaire catering!"></textarea></div>
-  <div class="vol midden"><button class="knop knop--vol" type="submit">Verstuur</button></div>
+  <div class="vol midden formulier__verstuur"><button class="knop knop--groen" type="submit">Verstuur</button></div>
 </form>
+      </div>
+      <aside class="offerte__stappen">
+        <h2 class="kop-klein">Zo gaat het verder.</h2>
+        <ol class="volgorde"><li><span class="volgorde__nr" aria-hidden="true">1</span><div><h3>Je aanvraag</h3><p>Vul het formulier in. Vertel me de datum, de locatie, het aantal gasten en het soort moment.</p></div></li><li><span class="volgorde__nr" aria-hidden="true">2</span><div><h3>Binnen 24 uur</h3><p>Ik neem binnen de 24 uur contact met je op.</p></div></li><li><span class="volgorde__nr" aria-hidden="true">3</span><div><h3>Een voorstel op maat</h3><p>Ik luister naar je wensen, je gasten en het moment, en doe een voorstel dat daarbij past.</p></div></li><li><span class="volgorde__nr" aria-hidden="true">4</span><div><h3>Zorgeloos</h3><p>Op de dag zelf open je enkel de deuren en voorzie je elektriciteit. Ik zorg voor al de rest, van servies tot eventueel meubilair.</p></div></li></ol>
+      </aside>
+    </div>
   </div>
 </section>
 </main>
@@ -112,6 +118,6 @@
     <button type="button" class="knop knop--klein" data-cookies="nee">Liever niet</button>
   </div>
 </div>
-<script src="/assets/js/site.js?v=ee272ef0" defer></script>
+<script src="/assets/js/site.js?v=94ea8a85" defer></script>
 </body>
 </html>

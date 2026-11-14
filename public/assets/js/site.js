@@ -112,7 +112,7 @@
 
   if (stil || !('IntersectionObserver' in window)) return;
   // Alleen beelden en kaarten; tekst staat meteen vast, zodat lezen niet wacht op een animatie.
-  var selectie = 'main .duo__beeld, main .case-kaart, main .beeld:not(.beeld--vast) img';
+  var selectie = 'main .duo__beeld, main .case-kaart, main .keuze__item, main .kookte__item, main .fotokaart, main .stap, main .anders__bord';
   var hoogte = window.innerHeight;
   var io = new IntersectionObserver(function (items) {
     items.forEach(function (it) {
@@ -136,6 +136,55 @@
     el.classList.add('onthul');
     io.observe(el);
   });
+})();
+
+// Scroll-parallax: grote foto's schuiven trager mee dan de pagina, het ronde bord op Mijn aanpak draait licht.
+// Alleen transform, alleen wat in beeld is, en niets bij "minder beweging".
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var lijst = [];
+  function voeg(sel, soort, sterkte) {
+    document.querySelectorAll(sel).forEach(function (el) { lijst.push({ el: el, doos: el.parentElement, soort: soort, sterkte: sterkte }); });
+  }
+  voeg('main .hero > img', 'schuif', 0.10);
+  voeg('main .beeld:not(.beeld--vast) img', 'schuif', 0.12);
+  voeg('main .sectie--split .duo__beeld img', 'schuif', 0.08);
+  voeg('main .anders__bord img', 'draai', 14);
+  if (!lijst.length) return;
+
+  var zichtbaar = new Set();
+  var io = new IntersectionObserver(function (items) {
+    items.forEach(function (it) {
+      var item = lijst.find(function (x) { return x.doos === it.target; });
+      if (!item) return;
+      if (it.isIntersecting) zichtbaar.add(item); else zichtbaar.delete(item);
+    });
+    plan();
+  }, { rootMargin: '10% 0px 10% 0px' });
+  lijst.forEach(function (x) { io.observe(x.doos); });
+
+  var bezig = false;
+  function plan() { if (!bezig) { bezig = true; requestAnimationFrame(teken); } }
+  function teken() {
+    bezig = false;
+    var h = window.innerHeight;
+    zichtbaar.forEach(function (x) {
+      var r = x.doos.getBoundingClientRect();
+      // -0.5 als de foto net onderaan binnenkomt, +0.5 als ze bovenaan verdwijnt
+      var p = Math.max(-0.5, Math.min(0.5, ((h / 2) - (r.top + r.height / 2)) / (h + r.height)));
+      if (x.soort === 'schuif') {
+        // Verschuiving max. sterkte/2 van de hoogte; de zoom vangt aan elke kant iets meer op, dus nooit een rand.
+        x.el.style.transform = 'translate3d(0,' + (p * r.height * x.sterkte).toFixed(1) + 'px,0) scale(' + (1 + x.sterkte * 1.25).toFixed(3) + ')';
+      } else {
+        x.el.style.transform = 'rotate(' + (p * x.sterkte * 2).toFixed(2) + 'deg) scale(1.06)';
+      }
+    });
+  }
+  window.addEventListener('scroll', plan, { passive: true });
+  window.addEventListener('resize', plan);
+  plan();
 })();
 
 // "Terug"-knop op een case: ga terug naar de vorige pagina als die op deze site lag, anders naar het overzicht
