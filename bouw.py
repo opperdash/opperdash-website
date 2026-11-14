@@ -357,7 +357,7 @@ HOME = {
     k4="Catering voor bedrijven",
     p4="Een bedrijfslunch, teamevent of personeelsfeest: ik kom met de foodtruck, zet een buffet of verzorg catering in de vorm die bij je event past. De basis blijft dezelfde: smaakvolle gerechten die ook gezond zijn voor het lichaam.",
     alt_bedr="Culinair gerecht met mediterrane invloeden op een keramisch bord", b_truck="Foodtruck", b_cat="Catering",
-    alt_k_truck="De foodtruck van Opperdash serveert gasten op een bedrijfsevent", k_truck="Vanuit de foodtruck kook en serveer ik ter plaatse, van een bedrijfslunch tot een groot event met tot 250 gasten.",
+    alt_k_truck="De foodtruck van Opperdash serveert gasten op een bedrijfsevent", k_truck="Vanuit de foodtruck kook en serveer ik ter plaatse, van een bedrijfslunch tot een groot event met tot 250 gasten. Altijd op keramiek met echt bestek.",
     alt_k_cat="Bruschetta met tomaat en verse basilicum op keramiek, van het buffet van Opperdash", k_cat="Een culinair buffet, catering aan tafel of een walking dinner. Altijd op keramiek en met echt bestek."),
  "en": dict(titel="Corporate catering and food truck from Leuven | Opperdash",
     desc="Culinary catering, buffets and a food truck for staff parties, team events and company lunches. Nourishing dishes with Mediterranean influences, from Leuven.",
@@ -374,7 +374,7 @@ HOME = {
     k4="Catering for companies",
     p4="A company lunch, team event or staff party: I bring the food truck, set up a buffet or cater in the format that suits your event. The base stays the same: flavourful dishes that are also healthy for the body.",
     alt_bedr="Culinary dish with Mediterranean influences on a ceramic plate", b_truck="Food truck", b_cat="Catering",
-    alt_k_truck="The Opperdash food truck serving guests at a company event", k_truck="From the food truck I cook and serve on site, from a company lunch to a large event of up to 250 guests.",
+    alt_k_truck="The Opperdash food truck serving guests at a company event", k_truck="From the food truck I cook and serve on site, from a company lunch to a large event of up to 250 guests. Always on ceramic with real cutlery.",
     alt_k_cat="Bruschetta with tomato and fresh basil on ceramic, from the Opperdash buffet", k_cat="A culinary buffet, seated catering or a walking dinner. Always on ceramic and with real cutlery."),
  "fr": dict(titel="Traiteur d’entreprise et food truck depuis Louvain | Opperdash",
     desc="Traiteur culinaire, buffet et food truck pour fêtes du personnel, événements d’équipe et lunchs d’entreprise. Des plats nourrissants aux influences méditerranéennes.",
@@ -391,7 +391,7 @@ HOME = {
     k4="Traiteur pour entreprises",
     p4="Un lunch d’entreprise, un événement d’équipe ou une fête du personnel : je viens avec le food truck, j’installe un buffet ou j’assure le traiteur dans la formule qui convient à votre événement. La base reste la même : des plats savoureux qui sont aussi sains pour le corps.",
     alt_bedr="Plat culinaire aux influences méditerranéennes sur une assiette en céramique", b_truck="Food truck", b_cat="Traiteur",
-    alt_k_truck="Le food truck Opperdash sert des invités lors d’un événement d’entreprise", k_truck="Depuis le food truck, je cuisine et je sers sur place, d’un lunch d’entreprise à un grand événement jusqu’à 250 invités.",
+    alt_k_truck="Le food truck Opperdash sert des invités lors d’un événement d’entreprise", k_truck="Depuis le food truck, je cuisine et je sers sur place, d’un lunch d’entreprise à un grand événement jusqu’à 250 invités. Toujours en céramique avec de vrais couverts.",
     alt_k_cat="Bruschetta à la tomate et au basilic frais sur céramique, du buffet Opperdash", k_cat="Un buffet culinaire, un service à table ou un walking dinner. Toujours en céramique et avec de vrais couverts."),
 }
 # ============================================================ CATERING
@@ -626,10 +626,10 @@ for L in TALEN:
 AANPAK = {
  "nl": dict(titel="Mijn aanpak voor catering op maat | Opperdash",
     desc="Een gesprek, een menu op maat en een zorgeloze dag. Eén vast aanspreekpunt en heldere afspraken. Zo verzorgt Opperdash de catering van je bedrijf of event.",
-    crumb="Mijn aanpak", alt_hero="Een kok van Opperdash dresseert gerechten op keramiek", alt_bord="Een gerecht van Opperdash met bulgur en rodekoolsla op een keramisch bord", h1="Zo pak ik het aan.", lead="Eerst een gesprek, dan een menu op maat. Op de dag zelf breng ik servies en glazen mee en laat ik alles proper achter.", k1="Opper aanpak",
-    stappen=[("Het gesprek", "Ik start met een gesprek. Ik luister naar je wensen, je gasten en het moment, en doe een voorstel dat daarbij past."),
-             ("Jouw menu", "Je krijgt een voorstel op maat. Hapjes, voorgerecht en hoofdgerecht, of enkel een sterk hoofdgerecht? Dat bespreken we samen."),
-             ("Zorgeloos", "Op de dag zelf open je enkel de deur. Ik breng servies en glazen mee en laat alles proper achter.")],
+    crumb="Mijn aanpak", alt_hero="Een kok van Opperdash dresseert gerechten op keramiek", alt_bord="Een gerecht van Opperdash met bulgur en rodekoolsla op een keramisch bord", h1="Zo pak ik het aan.", lead="Eerst een gesprek, dan een menu op maat. Op de dag zelf breng ik servies en glazen mee en laat ik alles proper achter.", k1="Zo ga ik te werk",
+    stappen=[("Eerst een gesprek", "Ik luister naar je wensen, je gasten en het moment."),
+             ("Menu en offerte op maat", "Je krijgt een menu en een offerte op maat. Hapjes, voorgerecht en hoofdgerecht, of enkel een sterk hoofdgerecht? Dat bespreken we samen."),
+             ("Zorgeloos", "Op de dag zelf breng ik alles mee, van servies tot meubilair, en laat ik alles proper achter.")],
     boek="Boek Opperdash", alt_sfeer="Menukaart van Opperdash tussen verse tomaten en basilicum",
     alt_truck="Elias Nys kookt in de foodtruck van Opperdash", k2="Foodtruck", p2="Voedzame culinaire gerechten, vers geserveerd vanuit de foodtruck.", b_truck="Foodtruck",
     v_titel="Voordelen van werken<br>met Opperdash",
@@ -641,10 +641,10 @@ AANPAK = {
     alt_buf="Buffet met mediterrane gerechten van Opperdash", c_kop="Cases", c_tekst="Een kijk achter de schermen van enkele events die ik verzorgde: voor wie ik kookte, wat er op het bord kwam en hoe ik het aanpakte.", c_knop="Cases", alt_cases="Twee gerechten van Opperdash worden aan de foodtruck aan gasten gegeven", k3="Buffet", p3="Een culinair buffet met mediterrane invloeden, op keramiek en met echt bestek.", b_cat="Catering"),
  "en": dict(titel="How I work: tailored catering from start to finish | Opperdash",
     desc="A conversation, a tailored menu and a carefree day. One point of contact and clear agreements. This is how Opperdash caters your company or event.",
-    crumb="How I work", alt_hero="An Opperdash cook plating dishes on ceramic", alt_bord="An Opperdash dish with bulgur and red cabbage slaw on a ceramic plate", h1="This is how I work.", lead="First a conversation, then a tailored menu. On the day itself I bring the tableware and glasses and leave everything clean.", k1="The Opper approach",
-    stappen=[("The conversation", "I start with a conversation. I listen to your wishes, your guests and the occasion, and make a proposal that fits."),
-             ("Your menu", "You receive a tailored proposal. Appetisers, starter and main course, or one strong main course? We decide together."),
-             ("Carefree", "On the day itself, all you do is open the door. I bring the tableware and glasses and leave everything clean.")],
+    crumb="How I work", alt_hero="An Opperdash cook plating dishes on ceramic", alt_bord="An Opperdash dish with bulgur and red cabbage slaw on a ceramic plate", h1="This is how I work.", lead="First a conversation, then a tailored menu. On the day itself I bring the tableware and glasses and leave everything clean.", k1="How I work",
+    stappen=[("First a conversation", "I listen to your wishes, your guests and the occasion."),
+             ("A tailored menu and quote", "You receive a menu and a quote made to measure. Appetisers, starter and main course, or one strong main course? We decide together."),
+             ("Carefree", "On the day itself I bring everything, from tableware to furniture, and leave everything clean.")],
     boek="Book Opperdash", alt_sfeer="Opperdash menu card among fresh tomatoes and basil",
     alt_truck="Elias Nys cooking in the Opperdash food truck", k2="Food truck", p2="Nourishing culinary dishes, served fresh from the food truck.", b_truck="Food truck",
     v_titel="Why work<br>with Opperdash",
@@ -656,10 +656,10 @@ AANPAK = {
     alt_buf="Buffet of Mediterranean dishes by Opperdash", c_kop="Cases", c_tekst="A look behind the scenes of some of the events I catered: who I cooked for, what ended up on the plate and how I approached it.", c_knop="Cases", alt_cases="Two Opperdash dishes being handed to guests at the food truck", k3="Buffet", p3="A culinary buffet with Mediterranean influences, on ceramic and with real cutlery.", b_cat="Catering"),
  "fr": dict(titel="Mon approche : un traiteur sur mesure | Opperdash",
     desc="Un échange, un menu sur mesure et une journée sans souci. Un seul interlocuteur et des accords clairs. Voici comment Opperdash organise votre traiteur.",
-    crumb="Mon approche", alt_hero="Un cuisinier d’Opperdash dresse des plats en céramique", alt_bord="Un plat d’Opperdash avec boulgour et salade de chou rouge dans une assiette en céramique", h1="Voilà comment je travaille.", lead="D’abord un échange, puis un menu sur mesure. Le jour même, j’apporte la vaisselle et les verres, et je laisse tout propre derrière moi.", k1="L’approche Opper",
-    stappen=[("L’échange", "Je commence par un échange. J’écoute vos souhaits, vos invités et le moment, puis je fais une proposition adaptée."),
-             ("Votre menu", "Vous recevez une proposition sur mesure. Bouchées, entrée et plat, ou uniquement un plat principal fort ? Nous en discutons ensemble."),
-             ("Sans souci", "Le jour même, vous n’avez qu’à ouvrir la porte. J’apporte la vaisselle et les verres, et je laisse tout propre derrière moi.")],
+    crumb="Mon approche", alt_hero="Un cuisinier d’Opperdash dresse des plats en céramique", alt_bord="Un plat d’Opperdash avec boulgour et salade de chou rouge dans une assiette en céramique", h1="Voilà comment je travaille.", lead="D’abord un échange, puis un menu sur mesure. Le jour même, j’apporte la vaisselle et les verres, et je laisse tout propre derrière moi.", k1="Ma façon de travailler",
+    stappen=[("D’abord un échange", "J’écoute vos souhaits, vos invités et le moment."),
+             ("Un menu et un devis sur mesure", "Vous recevez un menu et un devis sur mesure. Bouchées, entrée et plat, ou uniquement un plat principal fort ? Nous en discutons ensemble."),
+             ("Sans souci", "Le jour même, j’apporte tout, de la vaisselle au mobilier, et je laisse tout propre derrière moi.")],
     boek="Réservez", alt_sfeer="Carte du menu Opperdash parmi des tomates fraîches et du basilic",
     alt_truck="Elias Nys cuisine dans le food truck Opperdash", k2="Food truck", p2="Des plats culinaires et nourrissants, servis frais depuis le food truck.", b_truck="Food truck",
     v_titel="Les avantages<br>d’Opperdash",
@@ -681,6 +681,27 @@ ANDERS = {
             punten=["Aucune friture", "Ni sucre ni huile raffinés", "Sans additifs", "En céramique avec de vrais couverts"]),
 }
 VINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>'
+
+
+def keuze_blok(L, klasse="sectie"):
+    """Twee fotokaarten: foodtruck en catering (home en Mijn aanpak)."""
+    t = HOME[L]
+    return f'''<section class="{klasse}">
+  <div class="container">
+    <div class="keuze">
+      <article class="keuze__item">
+        <a class="keuze__beeld" href="{url("foodtruck", L)}" tabindex="-1" aria-hidden="true">{img("foodtruck-hero.webp", t["alt_k_truck"], 1698, 1132, sizes="(max-width: 800px) 100vw, 50vw")}</a>
+        <p>{t["k_truck"]}</p>
+        <a class="knop knop--klein" href="{url("foodtruck", L)}">{t["b_truck"]}</a>
+      </article>
+      <article class="keuze__item">
+        <a class="keuze__beeld" href="{url("catering", L)}" tabindex="-1" aria-hidden="true">{img("catering-sfeer.webp", t["alt_k_cat"], 1920, 1275, sizes="(max-width: 800px) 100vw, 50vw")}</a>
+        <p>{t["k_cat"]}</p>
+        <a class="knop knop--klein" href="{url("catering", L)}">{t["b_cat"]}</a>
+      </article>
+    </div>
+  </div>
+</section>'''
 
 
 def anders_blok(L):
@@ -722,33 +743,11 @@ for L in TALEN:
 
 <div class="beeld">{img("aanpak-sfeer.webp", t["alt_sfeer"], 1698, 1132)}</div>
 
-<section class="sectie sectie--split">
-  <div class="duo">
-    <div class="duo__tekst">
-      <h2 class="zwaar">{t["k2"]}</h2>
-      <p>{t["p2"]}</p>
-      <div class="knoppen"><a class="knop knop--groen knop--klein" href="{url("foodtruck", L)}">{t["b_truck"]}</a></div>
-    </div>
-    <div class="duo__beeld">{img("aanpak-foodtruck.webp", t["alt_truck"], 962, 641, sizes="(max-width: 800px) 100vw, 50vw")}</div>
-  </div>
-</section>
-
 <section class="sectie sectie--zand">
   <div class="container">
     <h2>{t["v_titel"]}</h2>
     <ul class="voordeel-rijen">{voordelen}</ul>
     <a class="knop knop--groen" href="{url("contact", L)}">{t["boek"]}</a>
-  </div>
-</section>
-
-<section class="sectie sectie--split">
-  <div class="duo">
-    <div class="duo__beeld">{img("aanpak-buffet-groot.webp", t["alt_buf"], 1920, 1183, sizes="(max-width: 800px) 100vw, 50vw")}</div>
-    <div class="duo__tekst">
-      <h2 class="zwaar">{t["k3"]}</h2>
-      <p>{t["p3"]}</p>
-      <div class="knoppen"><a class="knop knop--groen knop--klein" href="{url("catering", L)}">{t["b_cat"]}</a></div>
-    </div>
   </div>
 </section>
 
@@ -762,6 +761,8 @@ for L in TALEN:
     </div>
   </div>
 </section>
+
+{keuze_blok(L)}
 ''', hero="aanpak-hero-bord.webp", ogbeeld="og-aanpak.jpg", ogalt=t["alt_hero"], schema=[breadcrumbs("aanpak", L, t["crumb"])])
 
 # ============================================================ ONS VERHAAL
@@ -771,7 +772,7 @@ VERHAAL = {
     crumb="Mijn verhaal", alt_hero="Elias Nys serveert gasten vanuit de foodtruck van Opperdash",
     alt_foto="Een gast krijgt een gerecht van Opperdash aangereikt aan de foodtruck", h1="Het verhaal achter<br>Opperdash",
     alt_el="Een gerecht van Opperdash in een donkere keramische kom", alt_tuin="Chef Elias Nys proeft van verse kruiden in een tuin met lavendel", k1="Wie zit er<br>achter Opperdash?",
-    p1=["Ik ben Elias Nys, chef, ondernemer en oprichter van Opperdash. In mijn keuken zijn kwaliteit en gezondheid even belangrijk. Intense smaken en een verfijnde presentatie zijn altijd het doel.",
+    p1=["Ik ben Elias Nys, chef, ondernemer en oprichter van Opperdash. In mijn keuken zijn kwaliteit en gezondheid even belangrijk, met intense smaken en een verfijnde presentatie als hoofddoel.",
         "Na mijn opleiding Lichamelijke Opvoeding koos ik voor de horeca. Ik volgde de opleidingen Restauranthouder en Horecamanagement en deed mijn ervaring op in de fine dining. Ik werkte meerdere jaren bij restaurant d’Artagnan en liep stage bij restaurant Arenberg in Leuven.",
         "In 2024 trok ik vier maanden naar Spanje en werkte daar in het vijfsterrenhotel Maria Cristina. Ik werd verliefd op de puurheid van de mediterrane keuken. Die inspiratie verwerk ik nu in de gerechten van Opperdash."],
     alt_med="Bruschetta met tomaat en basilicum, een mediterraan gerecht van Opperdash", k2="Mediterrane inspiratie",
@@ -780,14 +781,14 @@ VERHAAL = {
     k3="Waar het begon", alt_begin="Verse paprika, groenten en kruiden naast een snijplank met het logo van Opperdash",
     p3=["Opperdash begon als fitnessfoodtruck. Daar ben ik in de diepte gaan kijken naar wat echt goed is voor het lichaam.",
         "Daaruit kwam één keuze: geen additieven, geen geraffineerde olie en geen geraffineerde suiker. Wat overblijft, zijn whole foods en pure producten.",
-        "Met die producten kook ik zoals ik het in de fine dining en in San Sebastián leerde. Ik haal het maximum aan smaak uit elk product, hou het herkenbaar en werk elk gerecht af met verschillende garnituren, kleuren en texturen. Die combinatie van culinair vakmanschap en gezond eten maakt Opperdash anders."],
+        "Met die producten kook ik zoals ik het in de fine dining en in San Sebastián leerde. Ik haal het maximum aan smaak uit elk product, hou het herkenbaar en werk gerechten af met verschillende garnituren, kleuren en texturen. Die combinatie van culinair vakmanschap en gezond eten maakt Opperdash anders."],
     job="Chef en oprichter"),
  "en": dict(titel="About Elias Nys, chef and founder | Opperdash",
     desc="Elias Nys trained in fine dining and in a five-star hotel in San Sebastián. With Opperdash he cooks nourishing culinary dishes with Mediterranean influences.",
     crumb="My story", alt_hero="Elias Nys serving guests from the Opperdash food truck",
     alt_foto="A guest is handed an Opperdash dish at the food truck", h1="The story behind<br>Opperdash",
     alt_el="An Opperdash dish in a dark ceramic bowl", alt_tuin="Chef Elias Nys tasting fresh herbs in a garden with lavender", k1="Who is behind<br>Opperdash?",
-    p1=["I am Elias Nys, chef, entrepreneur and founder of Opperdash. In my kitchen, quality and health matter equally. Intense flavour and refined presentation are always the goal.",
+    p1=["I am Elias Nys, chef, entrepreneur and founder of Opperdash. In my kitchen, quality and health matter equally, with intense flavour and refined presentation as the main goal.",
         "After studying Physical Education, I chose hospitality. I trained in Restaurant Ownership and Hospitality Management and gained my experience in fine dining. I worked for several years at restaurant d’Artagnan and did an internship at restaurant Arenberg in Leuven.",
         "In 2024 I spent four months in Spain, working at the five-star Hotel Maria Cristina. I fell in love with the purity of Mediterranean cooking, and I now bring that inspiration into the dishes of Opperdash."],
     alt_med="Bruschetta with tomato and basil, a Mediterranean dish by Opperdash", k2="Mediterranean inspiration",
@@ -796,14 +797,14 @@ VERHAAL = {
     k3="Where it started", alt_begin="Fresh peppers, vegetables and herbs next to a chopping board with the Opperdash logo",
     p3=["Opperdash started out as a fitness food truck. That is where I began looking closely at what is truly good for the body.",
         "That led to one choice: no additives, no refined oils and no refined sugar. What remains are whole foods and pure produce.",
-        "I cook with that produce the way I learned in fine dining and in San Sebastián. I draw the most flavour out of every product, keep it recognisable and finish each dish with different garnishes, colours and textures. That combination of culinary craft and healthy food is what sets Opperdash apart."],
+        "I cook with that produce the way I learned in fine dining and in San Sebastián. I draw the most flavour out of every product, keep it recognisable and finish dishes with different garnishes, colours and textures. That combination of culinary craft and healthy food is what sets Opperdash apart."],
     job="Chef and founder"),
  "fr": dict(titel="Elias Nys, chef et fondateur d’Opperdash | Opperdash",
     desc="Elias Nys s’est formé en haute cuisine et dans un hôtel cinq étoiles à Saint-Sébastien. Avec Opperdash, il cuisine des plats culinaires et nourrissants aux influences méditerranéennes.",
     crumb="Mon histoire", alt_hero="Elias Nys sert des invités depuis le food truck Opperdash",
     alt_foto="Un invité reçoit un plat Opperdash au food truck", h1="L’histoire<br>d’Opperdash",
     alt_el="Un plat d’Opperdash dans un bol en céramique foncée", alt_tuin="Le chef Elias Nys goûte des herbes fraîches dans un jardin avec de la lavande", k1="Qui se cache derrière<br>Opperdash ?",
-    p1=["Je suis Elias Nys, chef, entrepreneur et fondateur d’Opperdash. Dans ma cuisine, la qualité et la santé comptent autant l’une que l’autre. Des saveurs intenses et une présentation soignée restent toujours l’objectif.",
+    p1=["Je suis Elias Nys, chef, entrepreneur et fondateur d’Opperdash. Dans ma cuisine, la qualité et la santé comptent autant l’une que l’autre, avec des saveurs intenses et une présentation soignée comme objectif principal.",
         "Après des études d’éducation physique, j’ai choisi l’horeca. J’ai suivi les formations de restaurateur et de gestion hôtelière, puis acquis mon expérience dans la haute cuisine. J’ai travaillé plusieurs années au restaurant d’Artagnan et effectué un stage au restaurant Arenberg à Louvain.",
         "En 2024, je suis parti quatre mois en Espagne et j’ai travaillé à l’hôtel cinq étoiles Maria Cristina. Je suis tombé amoureux de la pureté de la cuisine méditerranéenne, et j’intègre aujourd’hui cette inspiration dans les plats d’Opperdash."],
     alt_med="Bruschetta à la tomate et au basilic, un plat méditerranéen d’Opperdash", k2="Inspiration méditerranéenne",
@@ -812,7 +813,7 @@ VERHAAL = {
     k3="Là où tout a commencé", alt_begin="Poivrons, légumes et herbes fraîches à côté d’une planche à découper avec le logo d’Opperdash",
     p3=["Opperdash a commencé comme food truck fitness. C’est là que j’ai étudié de près ce qui est vraiment bon pour le corps.",
         "Il en est sorti un choix : pas d’additifs, pas d’huile raffinée et pas de sucre raffiné. Ce qui reste, ce sont des aliments bruts et des produits purs.",
-        "Je cuisine ces produits comme je l’ai appris dans la haute cuisine et à Saint-Sébastien. J’en tire un maximum de goût, je garde chaque produit reconnaissable et je termine chaque plat avec différentes garnitures, couleurs et textures. C’est cette combinaison de savoir-faire culinaire et d’alimentation saine qui rend Opperdash différent."],
+        "Je cuisine ces produits comme je l’ai appris dans la haute cuisine et à Saint-Sébastien. J’en tire un maximum de goût, je garde chaque produit reconnaissable et je termine les plats avec différentes garnitures, couleurs et textures. C’est cette combinaison de savoir-faire culinaire et d’alimentation saine qui rend Opperdash différent."],
     job="Chef et fondateur"),
 }
 for L in TALEN:
@@ -896,11 +897,11 @@ LAB = {
 }
 CONTACT = {
  "nl": dict(titel="Contact: catering of foodtruck aanvragen | Opperdash", desc="Neem contact op met Opperdash voor catering, een buffet of de foodtruck. Mail elias@opperdash.be, bel +32 470 32 63 32 of stuur je vraag via het formulier.",
-            crumb="Contact", h1="Neem contact op", p="Vertel me over je event of stel je vraag. Ik antwoord zo snel mogelijk en maak een voorstel op maat.", vh="Contactformulier"),
+            crumb="Contact", h1="Neem contact op", p="Vertel me over je event of stel je vraag. Ik antwoord binnen 24 uur.", vh="Contactformulier"),
  "en": dict(titel="Get in touch about catering or the food truck | Opperdash", desc="Contact Opperdash for catering, a buffet or the food truck. Email elias@opperdash.be, call +32 470 32 63 32 or send your question using the form.",
-            crumb="Contact", h1="Get in touch", p="Tell me about your event or ask your question. I reply as soon as possible with a tailored proposal. I speak Dutch, English and French.", vh="Contact form"),
+            crumb="Contact", h1="Get in touch", p="Tell me about your event or ask your question. I reply within 24 hours. I speak Dutch, English and French.", vh="Contact form"),
  "fr": dict(titel="Contact : traiteur ou food truck | Opperdash", desc="Contactez Opperdash pour un traiteur, un buffet ou le food truck. Écrivez à elias@opperdash.be, appelez le +32 470 32 63 32 ou utilisez le formulaire.",
-            crumb="Contact", h1="Contactez-moi", p="Parlez-moi de votre événement ou posez votre question. Je réponds au plus vite avec une proposition sur mesure. Je parle français, néerlandais et anglais.", vh="Formulaire de contact"),
+            crumb="Contact", h1="Contactez-moi", p="Parlez-moi de votre événement ou posez votre question. Je réponds dans les 24 heures. Je parle français, néerlandais et anglais.", vh="Formulaire de contact"),
 }
 for L in TALEN:
     t, l = CONTACT[L], LAB[L]
@@ -948,17 +949,17 @@ OFF_STAPPEN = {
     ("Je aanvraag", "Vul het formulier in. Vertel me de datum, de locatie, het aantal gasten en het soort moment."),
     ("Binnen 24 uur", "Ik neem binnen de 24 uur contact met je op."),
     ("Een voorstel op maat", "Ik luister naar je wensen, je gasten en het moment, en doe een voorstel dat daarbij past."),
-    ("Zorgeloos", "Op de dag zelf open je enkel de deur. Ik breng servies en glazen mee en laat alles proper achter.")]),
+    ("Zorgeloos", "Op de dag zelf open je enkel de deuren. Ik voorzie alles.")]),
  "en": ("Next steps", [
     ("Your request", "Fill in the form. Tell me the date, the location, the number of guests and the kind of occasion."),
     ("Within 24 hours", "I will get back to you within 24 hours."),
     ("A tailored proposal", "I listen to your wishes, your guests and the occasion, and make a proposal that fits."),
-    ("Carefree", "On the day itself, all you do is open the door. I bring the tableware and glasses and leave everything clean.")]),
+    ("Carefree", "On the day itself, all you do is open the doors. I take care of everything.")]),
  "fr": ("La suite", [
     ("Votre demande", "Remplissez le formulaire. Indiquez-moi la date, le lieu, le nombre d’invités et le type d’événement."),
     ("Dans les 24 heures", "Je vous recontacte dans les 24 heures."),
     ("Une proposition sur mesure", "J’écoute vos souhaits, vos invités et le moment, puis je fais une proposition adaptée."),
-    ("Sans souci", "Le jour même, vous n’avez qu’à ouvrir la porte. J’apporte la vaisselle et les verres, et je laisse tout propre derrière moi.")]),
+    ("Sans souci", "Le jour même, vous n’avez qu’à ouvrir les portes. Je m’occupe de tout.")]),
 }
 
 
@@ -1189,6 +1190,13 @@ for c in ZICHTBARE_CASES:
 # Korte cases: alleen een kaart op de cases-pagina (foto, bedrijf, wat we serveerden), zonder eigen pagina.
 # Nieuwste eerst. nb verschijnt alleen in de conceptpreview, als extra uitleg in de conceptband.
 KORTE_CASES = [
+ dict(id="asmodee", publiceren=True, nb="", beeld=("case-asmodee.webp", 1200, 800),
+      nl=dict(naam="Asmodee", meta="Foodtruck · Kortenberg · ± 160 gasten", alt="De rode foodtruck van Opperdash ’s avonds bij Asmodee, met twee koks aan het werk",
+              tekst="Voor de showroomavond serveerde ik citroen-tijm kippendij of curryseitan met kruidige bulgur, geroosterde pompoen, champignonduxelles, rodekoolsalade en za’atar-yoghurt."),
+      en=dict(naam="Asmodee", meta="Food truck · Kortenberg · ± 160 guests", alt="The red Opperdash food truck in the evening at Asmodee, with two cooks at work",
+              tekst="For their showroom evening I served lemon-thyme chicken thigh or curried seitan with herby bulgur, roasted pumpkin, mushroom duxelles, red cabbage salad and za’atar yoghurt."),
+      fr=dict(naam="Asmodee", meta="Food truck · Kortenberg · ± 160 invités", alt="Le food truck rouge d’Opperdash en soirée chez Asmodee, avec deux cuisiniers au travail",
+              tekst="Pour leur soirée showroom, j’ai servi de la cuisse de poulet citron-thym ou du seitan au curry, avec boulgour aux herbes, potiron rôti, duxelles de champignons, salade de chou rouge et yaourt au za’atar.")),
  dict(id="xandres", publiceren=True, nb="", beeld=("case-xandres.webp", 1200, 800),
       nl=dict(naam="Xandres", meta="Foodtruck · Destelbergen · ± 50 gasten", alt="Elias en een collega van Opperdash aan de ontvangstbalie van Xandres",
               tekst="Voor het jubilarisfeest serveerde ik lemon-pepper chicken en curryseitan, met huisbereide limonades en pinda-chocotaart. Bijna 50 medewerkers aten binnen 30 minuten en gingen daarna terug aan het werk."),
@@ -1267,18 +1275,6 @@ for L in TALEN:
   <div class="container kopblok">
     <h2 class="kop-groot">{t["k_seizoen"]}</h2>
     <div class="kopblok__tekst">{"".join(f"<p>{p}</p>" for p in t["p1"])}</div>
-    <div class="keuze">
-      <article class="keuze__item">
-        <a class="keuze__beeld" href="{url("foodtruck", L)}" tabindex="-1" aria-hidden="true">{img("foodtruck-hero.webp", t["alt_k_truck"], 1698, 1132, sizes="(max-width: 800px) 100vw, 50vw")}</a>
-        <p>{t["k_truck"]}</p>
-        <a class="knop knop--klein" href="{url("foodtruck", L)}">{t["b_truck"]}</a>
-      </article>
-      <article class="keuze__item">
-        <a class="keuze__beeld" href="{url("catering", L)}" tabindex="-1" aria-hidden="true">{img("catering-sfeer.webp", t["alt_k_cat"], 1920, 1275, sizes="(max-width: 800px) 100vw, 50vw")}</a>
-        <p>{t["k_cat"]}</p>
-        <a class="knop knop--klein" href="{url("catering", L)}">{t["b_cat"]}</a>
-      </article>
-    </div>
   </div>
 </section>
 
@@ -1305,6 +1301,8 @@ for L in TALEN:
     </figure>
   </div>
 </section>
+
+{keuze_blok(L, "sectie sectie--linnen")}
 
 <section class="sectie">
   <div class="container">
