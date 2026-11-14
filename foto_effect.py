@@ -21,7 +21,7 @@ zijn al bewerkt; het script weigert die als bron.
 """
 import argparse, json, os, sys, zlib
 import numpy as np
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 IMG_DIR = os.path.join(HIER, "public", "assets", "img")
@@ -36,6 +36,9 @@ TINT = [np.where(TOON > 0.03, k / np.maximum(TOON, 1e-6), 1.0) for k in KROMMEN]
 KWALITEIT = 70            # webp-kwaliteit: houdt 94 tot 98% van de korrel en beperkt het gewicht
 KORREL = 3.7 / 255        # sterkte van de korrel in de middentonen (afgesteld op het korrelvoorbeeld van Elias, 14/11/2026)
 KORREL_ZACHT = 1.5        # verzachting van de korrel in px (bij 1920 px breed): hoger = grover en zachter
+KORREL_VLAK = 0.3         # deel van de korrel dat overblijft in egale vlakken (bord, doek, lucht)
+KORREL_LICHT = (0.5, 0.9, 0.65)   # tussen deze helderheden neemt de korrel af, tot 65% minder in het lichtste
+DETAIL_GRENS = (0.008, 0.035)     # gemiddelde afwijking waaronder een stuk egaal is, en waarboven vol detail
 REF_BREEDTE = 1920        # de korrel is gemeten op een foto van 1920 px breed
 WIT_VOOR, WIT_NA = 0.958, 0.854   # blauw/rood in het wit van de voorbeeldfoto, voor en na
 MAX_WARM = 1.3            # heel koele foto's niet verder dan dit opwarmen
@@ -69,9 +72,25 @@ def korrel(img, naam):
         n = np.asarray(Image.fromarray(n.astype(np.float32), mode="F").resize((w, h), Image.BOX), dtype=np.float64)
     x = np.asarray(img.convert("RGB"), dtype=np.float64) / 255
     l = x @ [0.2126, 0.7152, 0.0722]
-    amp = KORREL * np.sqrt(np.clip(4 * l * (1 - l), 0, 1)) * np.minimum(1, (l / 0.2) ** 0.25)
+    toon = np.sqrt(np.clip(4 * l * (1 - l), 0, 1)) * np.minimum(1, (l / 0.2) ** 0.25)
+    # Lichte tinten rustiger: op een wit bord of een lichte doek valt korrel het snelst op.
+    t = np.clip((l - KORREL_LICHT[0]) / (KORREL_LICHT[1] - KORREL_LICHT[0]), 0, 1)
+    toon *= 1 - KORREL_LICHT[2] * t * t * (3 - 2 * t)
+    amp = KORREL * toon * (KORREL_VLAK + (1 - KORREL_VLAK) * detail(l, w))
     y = np.clip(x + (n * amp)[..., None], 0, 1)
     return Image.fromarray((y * 255 + 0.5).astype(np.uint8))
+
+
+def detail(l, w):
+    """Hoeveel structuur er rond elke pixel zit: 0 in egale vlakken (bord, doek, lucht), 1 in eten en textuur.
+
+    In egale vlakken oogt korrel als losse pixels zodra de foto groot getoond wordt; daar krijgt ze
+    dus maar een deel van de sterkte (KORREL_VLAK)."""
+    sig = max(1.5, 6 * w / REF_BREEDTE)
+    naar8 = lambda a: Image.fromarray((np.clip(a, 0, 1) * 255 + 0.5).astype(np.uint8))
+    zacht = np.asarray(naar8(l).filter(ImageFilter.GaussianBlur(sig)), dtype=np.float64) / 255
+    afwijking = np.asarray(naar8(np.abs(l - zacht) * 4).filter(ImageFilter.GaussianBlur(sig * 1.5)), dtype=np.float64) / 255 / 4
+    return np.clip((afwijking - DETAIL_GRENS[0]) / (DETAIL_GRENS[1] - DETAIL_GRENS[0]), 0, 1)
 
 
 def film(img, naam, s):
