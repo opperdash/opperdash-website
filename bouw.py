@@ -674,19 +674,19 @@ AANPAK = {
 # smaak en gezond, seizoen en lokaal, keramiek met echt bestek, zorgeloos, vast aanspreekpunt.
 ANDERS = {
  "nl": dict(kop="Waarom kiezen mensen voor Opperdash?", alt="Een gerecht van Opperdash in een donkere keramische kom",
-            punten=["Intense smaken, gezond voor het lichaam", "Seizoensgebonden en lokale ingrediënten","Altijd op keramiek met echt bestek", "Jij opent de deuren, ik regel de rest", "Ik ben je vaste aanspreekpunt"]),
+            punten=["Intense smaken, gezond voor het lichaam", "Seizoensgebonden en lokale ingrediënten","Altijd op keramiek met echt bestek", "Volledig ontzorgd, van voorbereiding tot afronding", "Ik ben je vaste aanspreekpunt"]),
  "en": dict(kop="Why do people choose Opperdash?", alt="An Opperdash dish in a dark ceramic bowl",
-            punten=["Intense flavours, healthy for the body", "Seasonal and local ingredients","Always on ceramic with real cutlery", "You open the doors, I take care of the rest", "I am your single point of contact"]),
+            punten=["Intense flavours, healthy for the body", "Seasonal and local ingredients","Always on ceramic with real cutlery", "Fully taken care of, from preparation to wrap-up", "I am your single point of contact"]),
  "fr": dict(kop="Pourquoi choisit-on Opperdash ?", alt="Un plat d’Opperdash dans un bol en céramique foncée",
-            punten=["Des saveurs intenses, saines pour le corps", "Des ingrédients locaux et de saison","Toujours en céramique avec de vrais couverts", "Vous ouvrez les portes, je m’occupe du reste", "Je suis votre interlocuteur unique"]),
+            punten=["Des saveurs intenses, saines pour le corps", "Des ingrédients locaux et de saison","Toujours en céramique avec de vrais couverts", "Tout est pris en charge, de la préparation au rangement", "Je suis votre interlocuteur unique"]),
 }
 _ICOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{}</svg>'
-# Zelfde volgorde als de punten: vlam, blad, bestek, open deur, persoon.
+# Zelfde volgorde als de punten: vlam, blad, bestek, vinkje in cirkel, persoon.
 ANDERS_ICONEN = [
     _ICOON.format('<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>'),
     _ICOON.format('<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>'),
     _ICOON.format('<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>'),
-    _ICOON.format('<path d="M11 20H2"/><path d="M11 4.562v16.157a1 1 0 0 0 1.242.97L19 20V5.562a2 2 0 0 0-1.515-1.94l-4-1A2 2 0 0 0 11 4.561z"/><path d="M11 4H8a2 2 0 0 0-2 2v14"/><path d="M14 12h.01"/><path d="M22 20h-3"/>'),
+    _ICOON.format('<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>'),
     _ICOON.format('<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>'),
 ]
 
