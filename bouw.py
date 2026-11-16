@@ -250,11 +250,27 @@ def beeld(naam):
     return f"/assets/img/{naam}?v={_BEELD_VERSIE[naam]}"
 
 
+def _breedte(naam, w):
+    """Echte breedte van een webp-bestand (gewone VP8-kop); anders de opgegeven breedte."""
+    try:
+        with open(os.path.join(IMG_DIR, naam), "rb") as f:
+            kop = f.read(30)
+        if kop[12:16] == b"VP8 ":
+            return int.from_bytes(kop[26:28], "little") & 0x3FFF
+    except OSError:
+        pass
+    return w
+
+
 def srcset(naam, w):
-    """Geeft srcset-tekst terug als er een lichtere gsm-versie (-m.webp, 960 px) bestaat."""
-    m = naam.replace(".webp", "-m.webp")
-    if os.path.exists(os.path.join(IMG_DIR, m)):
-        return f"{beeld(m)} 960w, {beeld(naam)} {w}w"
+    """Geeft srcset-tekst terug als er lichtere versies bestaan: -m.webp (960 px, gsm) en -l.webp (1600 px, laptop)."""
+    delen = []
+    for achter, b in (("-m", 960), ("-l", 1600)):
+        v = naam.replace(".webp", achter + ".webp")
+        if os.path.exists(os.path.join(IMG_DIR, v)):
+            delen.append(f"{beeld(v)} {b}w")
+    if delen:
+        return ", ".join(delen + [f"{beeld(naam)} {_breedte(naam, w)}w"])
     return ""
 
 
@@ -485,13 +501,13 @@ CAT = {
 }
 for L in TALEN:
     t = CAT[L]
-    kaart_foto = [("aanpak-buffet-groot.webp", 1920, 1183), ("home-visie.webp", 962, 641), ("aanpak-cases.webp", 1440, 960)]
+    kaart_foto = [("aanpak-buffet-groot.webp", 2400, 1479), ("home-visie.webp", 2304, 1535), ("aanpak-cases.webp", 2304, 1536)]
     blokken = "".join(f'<article class="fotokaart"><div class="fotokaart__beeld">{img(f, alt, w, h, sizes="(max-width: 800px) 100vw, 33vw")}</div>'
                       f'<div class="fotokaart__tekst"><h3>{a}</h3><p>{b}</p></div></article>'
                       for (a, b), (f, w, h), alt in zip(t["blokken"], kaart_foto, t["kaart_alt"]))
     pagina("catering", L, t["titel"], t["desc"], f'''
 <section class="hero">
-  {img("catering-sfeer.webp", t["alt_hero"], 1920, 1275, lazy=False)}
+  {img("catering-sfeer.webp", t["alt_hero"], 2312, 1535, lazy=False)}
   <div class="container"><div class="hero__tekst">
     <h1>{t["h1"]}</h1>
     <p>{t["lead"]}</p>
@@ -521,7 +537,7 @@ for L in TALEN:
       {"".join(f"<p>{p}</p>" for p in t["p3"])}
       <div class="knoppen"><a class="knop knop--vol knop--klein" href="{url("off_cat", L)}">{C[L]["boek_cat"]}</a></div>
     </div>
-    <div class="duo__beeld">{img("verhaal-doel-groot.webp", t["alt_beeld"], 1920, 1280, sizes="(max-width: 800px) 100vw, 50vw")}</div>
+    <div class="duo__beeld">{img("verhaal-doel-groot.webp", t["alt_beeld"], 2304, 1536, sizes="(max-width: 800px) 100vw, 50vw")}</div>
   </div>
 </section>
 
@@ -595,7 +611,7 @@ for L in TALEN:
     t = TRUCK[L]
     pagina("foodtruck", L, t["titel"], t["desc"], f'''
 <section class="hero">
-  {img("foodtruck-hero.webp", t["alt_hero"], 1698, 1132, lazy=False)}
+  {img("foodtruck-hero.webp", t["alt_hero"], 2400, 1600, lazy=False)}
   <div class="container"><div class="hero__tekst">
     <h1>{t["h1"]}</h1>
     <p>{t["lead"]}</p>
@@ -612,7 +628,7 @@ for L in TALEN:
 
 <section class="sectie sectie--split sectie--zand">
   <div class="duo">
-    <div class="duo__beeld">{img("foodtruck-sfeer.webp", t["alt_sfeer"], 1698, 1132, sizes="(max-width: 800px) 100vw, 50vw")}<span class="badge" aria-hidden="true">{t["badge"]}</span></div>
+    <div class="duo__beeld">{img("foodtruck-sfeer.webp", t["alt_sfeer"], 2304, 1536, sizes="(max-width: 800px) 100vw, 50vw")}<span class="badge" aria-hidden="true">{t["badge"]}</span></div>
     <div class="duo__tekst">
       <h2 class="zwaar">{t["k2"]}</h2>
       <p>{t["p2"]}</p>
@@ -710,12 +726,12 @@ def keuze_blok(L, klasse="sectie"):
     <h2 class="kop-groot">{C[L]["f_aanbod"]}</h2>
     <div class="keuze keuze--onder-kop">
       <article class="keuze__item">
-        <a class="keuze__beeld" href="{url("foodtruck", L)}" tabindex="-1" aria-hidden="true">{img("foodtruck-hero.webp", t["alt_k_truck"], 1698, 1132, sizes="(max-width: 800px) 100vw, 50vw")}</a>
+        <a class="keuze__beeld" href="{url("foodtruck", L)}" tabindex="-1" aria-hidden="true">{img("foodtruck-hero.webp", t["alt_k_truck"], 2400, 1600, sizes="(max-width: 800px) 100vw, 50vw")}</a>
         <p>{t["k_truck"]}</p>
         <a class="knop knop--klein" href="{url("foodtruck", L)}">{t["b_truck"]}</a>
       </article>
       <article class="keuze__item">
-        <a class="keuze__beeld" href="{url("catering", L)}" tabindex="-1" aria-hidden="true">{img("catering-sfeer.webp", t["alt_k_cat"], 1920, 1275, sizes="(max-width: 800px) 100vw, 50vw")}</a>
+        <a class="keuze__beeld" href="{url("catering", L)}" tabindex="-1" aria-hidden="true">{img("catering-sfeer.webp", t["alt_k_cat"], 2312, 1535, sizes="(max-width: 800px) 100vw, 50vw")}</a>
         <p>{t["k_cat"]}</p>
         <a class="knop knop--klein" href="{url("catering", L)}">{t["b_cat"]}</a>
       </article>
@@ -731,7 +747,7 @@ def anders_blok(L):
   <div class="container">
     <div class="anders__vlak">
       <h2 class="anders__kop">{a["kop"]}</h2>
-      <div class="anders__bord">{img("verhaal-elias.webp", a["alt"], 962, 641, sizes="(max-width: 800px) 70vw, 36vw")}</div>
+      <div class="anders__bord">{img("verhaal-elias.webp", a["alt"], 2304, 1535, sizes="(max-width: 800px) 70vw, 36vw")}</div>
     </div>
     <ul class="anders__punten">{punten}</ul>
   </div>
@@ -744,7 +760,7 @@ for L in TALEN:
                       for i, (a, b) in enumerate(t["stappen"], 1))
     pagina("aanpak", L, t["titel"], t["desc"], f'''
 <section class="hero">
-  {img("aanpak-hero-bord.webp", t["alt_bord"], 1920, 1280, lazy=False)}
+  {img("aanpak-hero-bord.webp", t["alt_bord"], 2304, 1536, lazy=False)}
   <div class="container hero__tekst"><h1>{t["h1"]}</h1><p>{t["lead"]}</p></div>
 </section>
 
@@ -760,11 +776,11 @@ for L in TALEN:
   </div>
 </section>
 
-<div class="beeld">{img("aanpak-sfeer.webp", t["alt_sfeer"], 1698, 1132)}</div>
+<div class="beeld">{img("aanpak-sfeer.webp", t["alt_sfeer"], 2304, 1536)}</div>
 
 <section class="sectie sectie--linnen">
   <div class="container duo">
-    <div class="duo__beeld">{img("aanpak-cases.webp", t["alt_cases"], 1440, 960, sizes="(max-width: 800px) 100vw, 50vw")}</div>
+    <div class="duo__beeld">{img("aanpak-cases.webp", t["alt_cases"], 2304, 1536, sizes="(max-width: 800px) 100vw, 50vw")}</div>
     <div class="duo__tekst">
       <h2>{t["c_kop"]}</h2>
       <p>{t["c_tekst"]}</p>
@@ -830,14 +846,14 @@ for L in TALEN:
     t = VERHAAL[L]
     pagina("verhaal", L, t["titel"], t["desc"], f'''
 <section class="hero">
-  {img("verhaal-hero-truck.webp", t["alt_foto"], 1920, 1329, lazy=False)}
+  {img("verhaal-hero-truck.webp", t["alt_foto"], 2220, 1537, lazy=False)}
   <div class="container hero__tekst"><h1>{t["h1"]}</h1></div>
 </section>
 
 
 <section class="sectie sectie--linnen">
   <div class="container duo">
-    <div class="duo__beeld duo__beeld--hoog">{img("verhaal-elias-tuin.webp", t["alt_tuin"], 853, 1280)}</div>
+    <div class="duo__beeld duo__beeld--hoog">{img("verhaal-elias-tuin.webp", t["alt_tuin"], 853, 1280, sizes="(max-width: 800px) 100vw, 50vw")}</div>
     <div class="duo__tekst">
       <h2>{t["k1"]}</h2>
       {"".join(f"<p>{p}</p>" for p in t["p1"])}
@@ -851,13 +867,13 @@ for L in TALEN:
       <h2>{t["k3"]}</h2>
       {"".join(f"<p>{p}</p>" for p in t["p3"])}
     </div>
-    <div class="duo__beeld duo__beeld--vierkant">{img("verhaal-hero.webp", t["alt_begin"], 1920, 1235, sizes="(max-width: 800px) 100vw, 50vw")}</div>
+    <div class="duo__beeld duo__beeld--vierkant">{img("verhaal-hero.webp", t["alt_begin"], 2388, 1536, sizes="(max-width: 800px) 100vw, 50vw")}</div>
   </div>
 </section>
 
 <section class="sectie sectie--split sectie--zand">
   <div class="duo duo--omgekeerd">
-    <div class="duo__beeld">{img("home-visie.webp", t["alt_med"], 962, 641)}</div>
+    <div class="duo__beeld">{img("home-visie.webp", t["alt_med"], 2304, 1535, sizes="(max-width: 800px) 100vw, 50vw")}</div>
     <div class="duo__tekst">
       <h2>{t["k2"]}</h2>
       {"".join(f"<p>{p}</p>" for p in t["p2"])}
@@ -1207,35 +1223,35 @@ KORTE_CASES = [
               tekst="For their showroom evening I served lemon-thyme chicken thigh or curried seitan with herby bulgur, roasted pumpkin, mushroom duxelles, red cabbage salad and za’atar yoghurt."),
       fr=dict(naam="Asmodee", meta="Food truck · Kortenberg · ± 160 invités", alt="Le food truck rouge d’Opperdash en soirée chez Asmodee, avec deux cuisiniers au travail",
               tekst="Pour leur soirée showroom, j’ai servi de la cuisse de poulet citron-thym ou du seitan au curry, avec boulgour aux herbes, potiron rôti, duxelles de champignons, salade de chou rouge et yaourt au za’atar.")),
- dict(id="xandres", publiceren=True, nb="", beeld=("case-xandres.webp", 1200, 800),
+ dict(id="xandres", publiceren=True, nb="", beeld=("case-xandres.webp", 1440, 960),
       nl=dict(naam="Xandres", meta="Foodtruck · Destelbergen · ± 50 gasten", alt="Elias en een collega van Opperdash aan de ontvangstbalie van Xandres",
               tekst="Voor het jubilarisfeest serveerde ik lemon-pepper chicken en curryseitan, met huisbereide limonades en pinda-chocotaart. Bijna 50 medewerkers aten binnen 30 minuten en gingen daarna terug aan het werk."),
       en=dict(naam="Xandres", meta="Food truck · Destelbergen · ± 50 guests", alt="Elias and an Opperdash colleague at the Xandres reception desk",
               tekst="For their anniversary celebration I served lemon-pepper chicken and curried seitan, with homemade lemonades and peanut chocolate tart. Almost 50 employees ate within 30 minutes and went straight back to work."),
       fr=dict(naam="Xandres", meta="Food truck · Destelbergen · ± 50 invités", alt="Elias et un collègue d’Opperdash à l’accueil de Xandres",
               tekst="Pour la fête des jubilaires, j’ai servi du poulet citron-poivre et du seitan au curry, avec des limonades maison et une tarte chocolat cacahuète. Près de 50 collaborateurs ont mangé en 30 minutes avant de reprendre le travail.")),
- dict(id="kul", publiceren=True, nb="", beeld=("case-kul.webp", 1200, 800),
+ dict(id="kul", publiceren=True, nb="", beeld=("case-kul.webp", 2302, 1535),
       nl=dict(naam="KU Leuven", meta="Foodtruck · Leuven · 26 gasten", alt="Pulled beef met spitskool-appelslaw en lente-ui in een witte keramische kom",
               tekst="Een bedankmoment voor de collega’s na het academiejaar. Twee amuses, pulled beef met spitskool-appelslaw of gegrilde perzik met burrata, en daarna rosé chateaubriand of curryseitan met parelcouscous en ratatouille. Met huisgemaakte limonades en pinda-chocotaart."),
       en=dict(naam="KU Leuven", meta="Food truck · Leuven · 26 guests", alt="Pulled beef with pointed cabbage and apple slaw and spring onion in a white ceramic bowl",
               tekst="A thank-you to colleagues at the end of the academic year. Two amuse-bouches, pulled beef with pointed cabbage and apple slaw or grilled peach with burrata, then pink chateaubriand or curried seitan with pearl couscous and ratatouille. With homemade lemonades and peanut chocolate tart."),
       fr=dict(naam="KU Leuven", meta="Food truck · Louvain · 26 invités", alt="Effiloché de bœuf, salade de chou pointu et pomme et oignon nouveau dans un bol en céramique blanche",
               tekst="Un moment pour remercier les collègues à la fin de l’année académique. Deux amuse-bouches, effiloché de bœuf avec une salade de chou pointu et pomme ou pêche grillée et burrata, puis chateaubriand rosé ou seitan au curry avec couscous perlé et ratatouille. Avec des limonades maison et une tarte chocolat cacahuète.")),
- dict(id="3p", publiceren=True, nb="", beeld=("case-3p.webp", 1200, 800),
+ dict(id="3p", publiceren=True, nb="", beeld=("case-3p.webp", 1536, 1024),
       nl=dict(naam="3P", meta="Foodtruck · ± 40 gasten", alt="Elias werkt een gerecht af in de foodtruck van Opperdash",
               tekst="Lunch voor het hele team: kip met citroen en peper of seitancurry, met kruidige bulgur, gegrilde courgette, kerstomaten met rodewijnazijn, een yoghurt-komkommersalade en een licht pittige hummusdressing."),
       en=dict(naam="3P", meta="Food truck · ± 40 guests", alt="Elias finishing a dish in the Opperdash food truck",
               tekst="Lunch for the whole team: lemon-pepper chicken or seitan curry, with spiced bulgur, grilled courgette, cherry tomatoes with red wine vinegar, a yoghurt and cucumber salad and a lightly spicy hummus dressing."),
       fr=dict(naam="3P", meta="Food truck · ± 40 invités", alt="Elias termine un plat dans le food truck Opperdash",
               tekst="Un lunch pour toute l’équipe : poulet citron-poivre ou curry de seitan, avec boulgour épicé, courgette grillée, tomates cerises au vinaigre de vin rouge, une salade yaourt-concombre et une sauce houmous légèrement relevée.")),
- dict(id="couleur-cafe", publiceren=True, nb="", beeld=("case-couleur-cafe.webp", 1200, 800),
+ dict(id="couleur-cafe", publiceren=True, nb="", beeld=("case-couleur-cafe.webp", 2304, 1536),
       nl=dict(naam="Couleur Café", meta="Foodtruck · Festival · Brussel", alt="De tent van Opperdash met gasten",
               tekst="Een festivalweekend aan het Atomium in Brussel. Kippendij of seitancurry met krieltjes, zoete aardappel, komkommer, radijs, feta en hummus. Zonder rundvlees en zonder ingevlogen producten."),
       en=dict(naam="Couleur Café", meta="Food truck · Festival · Brussels", alt="The Opperdash tent with guests",
               tekst="A festival weekend at the Atomium in Brussels. Chicken thigh or seitan curry with baby potatoes, sweet potato, cucumber, radish, feta and hummus. No beef and no air-freighted produce."),
       fr=dict(naam="Couleur Café", meta="Food truck · Festival · Bruxelles", alt="La tente Opperdash avec des invités",
               tekst="Un week-end de festival à l’Atomium, à Bruxelles. Cuisse de poulet ou curry de seitan avec pommes grenaille, patate douce, concombre, radis, feta et houmous. Sans bœuf et sans produits importés par avion.")),
- dict(id="veritas", publiceren=True, nb="", beeld=("case-veritas.webp", 962, 641),
+ dict(id="veritas", publiceren=True, nb="", beeld=("case-veritas.webp", 2400, 1597),
       nl=dict(naam="Veritas", meta="Foodtruck · Kontich · ± 100 gasten", alt="Elias aan de toonbank van de foodtruck van Opperdash",
               tekst="Lunch voor zo’n 100 medewerkers, in twee shifts. Kippendij of seitancurry met zoete aardappel, krieltjes, boontjes, rode biet, feta en hummus."),
       en=dict(naam="Veritas", meta="Food truck · Kontich · ± 100 guests", alt="Elias at the counter of the Opperdash food truck",
@@ -1290,7 +1306,7 @@ for L in TALEN:
 
 <section class="sectie sectie--split">
   <div class="duo">
-    <div class="duo__beeld">{img("catering-capaciteit.webp", t["alt_visie"], 962, 641)}</div>
+    <div class="duo__beeld">{img("catering-capaciteit.webp", t["alt_visie"], 2304, 1535, sizes="(max-width: 800px) 100vw, 50vw")}</div>
     <div class="duo__tekst">
       <h2>{t["k2"]}</h2>
       {"".join(f"<p>{p}</p>" for p in t["p2"])}
@@ -1303,7 +1319,7 @@ for L in TALEN:
   <div class="container">
     <h2 class="kop-groot">{t["k3"]}</h2>
     <figure class="citaat citaat--groot">
-      {img("testimonial-3e.webp", "Stef Goossens, CEO 3E", 480, 480)}
+      {img("testimonial-3e.webp", "Stef Goossens, CEO 3E", 960, 960)}
       <div>
         <blockquote>“{t["quote"]}”</blockquote>
         <figcaption><span class="citaat__naam">Stef Goossens</span><span class="citaat__functie">{t["functie"]} <a href="https://www.linkedin.com/company/3e/" target="_blank" rel="noopener">3E</a></span>{vert}</figcaption>
@@ -1412,7 +1428,7 @@ for L in TALEN:
       </article>''' for k in ZICHTBARE_KORT)
     pagina("cases", L, t["titel"], t["desc"], f'''
 <section class="hero">
-  {img("cases-hero.webp", t["alt_hero"], 1920, 1280, lazy=False)}
+  {img("cases-hero.webp", t["alt_hero"], 2304, 1536, lazy=False)}
   <div class="container"><div class="hero__tekst">
     <h1>{t["h1"]}</h1>
     <p>{t["intro"]}</p>
