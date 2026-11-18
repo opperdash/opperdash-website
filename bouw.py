@@ -377,7 +377,7 @@ HOME = {
     k1="Culinair.<br>Gezond.<br>Mediterraan.", k_seizoen="Welkom bij Opperdash",
     p1=["Mijn naam is Elias. Ik ben chef en oprichter van Opperdash. Ik serveer culinaire, gezonde gerechten met mediterrane invloeden.",
         "Ik werk uitsluitend met whole foods en pure producten, op het ritme van het seizoen. Dat doe ik vanuit de foodtruck of in cateringvorm."],
-    alt_visie="Elias Nys in Opperdash-schort met een bord van de catering", k2="Mijn visie",
+    alt_visie="Geroosterde perzik met romige kaas, geroosterde amandel en erwtenscheuten in een witte kom van Opperdash", k2="Mijn visie",
     p2=["Opperdash groeit vanuit een passie voor gezondheid en een liefde voor smaak. Ik sta voor gerechten met intense smaken die ook gezond zijn voor het lichaam."],
     k3="Wat klanten zeggen", functie="CEO van", vertaald="",
     quote="We hebben Opperdash uitgenodigd voor een personeelsevenement bij 3E, en dat was een heel fijne ervaring. De gerechten waren gezond, smaakvol en met zorg gebracht. Je merkt dat Elias veel aandacht heeft voor kwaliteit, service en de juiste energie op zo’n moment. Ik zou Opperdash zeker aanraden aan andere bedrijven.",
@@ -394,7 +394,7 @@ HOME = {
     k1="Culinary.<br>Healthy.<br>Mediterranean.", k_seizoen="Welcome to Opperdash",
     p1=["My name is Elias. I am the chef and founder of Opperdash. I serve culinary, healthy dishes with Mediterranean influences.",
         "I work exclusively with whole foods and pure produce, in step with the seasons. I do this from the food truck or as catering."],
-    alt_visie="Elias Nys in an Opperdash apron holding a plate from the catering", k2="My vision",
+    alt_visie="Roasted peach with creamy cheese, toasted almonds and pea shoots in a white Opperdash bowl", k2="My vision",
     p2=["Opperdash grows out of a passion for health and a love of flavour. I stand for dishes with intense flavours that are also healthy for the body."],
     k3="What clients say", functie="CEO of", vertaald="Translated from Dutch",
     quote="We invited Opperdash for a staff event at 3E, and it was a really pleasant experience. The dishes were healthy, full of flavour and served with care. You can tell Elias pays close attention to quality, service and the right energy for the occasion. I would certainly recommend Opperdash to other companies.",
@@ -411,7 +411,7 @@ HOME = {
     k1="Culinaire.<br>Sain.<br>Méditerranéen.", k_seizoen="Bienvenue chez Opperdash",
     p1=["Je m’appelle Elias. Je suis chef et fondateur d’Opperdash. Je sers des plats culinaires et sains aux influences méditerranéennes.",
         "Je travaille uniquement des aliments bruts et des produits purs, au rythme des saisons. Je le fais depuis le food truck ou en formule traiteur."],
-    alt_visie="Elias Nys en tablier Opperdash tenant une assiette du service traiteur", k2="Ma vision",
+    alt_visie="Pêche rôtie au fromage crémeux, amandes grillées et pousses de pois dans un bol blanc d’Opperdash", k2="Ma vision",
     p2=["Opperdash naît d’une passion pour la santé et d’un amour du goût. Je défends des plats aux saveurs intenses, qui sont aussi sains pour le corps."],
     k3="Ce que disent mes clients", functie="CEO de", vertaald="Traduit du néerlandais",
     quote="Nous avons invité Opperdash pour un événement du personnel chez 3E, et ce fut une très belle expérience. Les plats étaient sains, savoureux et servis avec soin. On sent qu’Elias accorde beaucoup d’attention à la qualité, au service et à la bonne énergie du moment. Je recommande vivement Opperdash à d’autres entreprises.",
@@ -1306,7 +1306,7 @@ for L in TALEN:
 
 <section class="sectie sectie--split">
   <div class="duo">
-    <div class="duo__beeld">{img("catering-capaciteit.webp", t["alt_visie"], 2304, 1535, sizes="(max-width: 800px) 100vw, 50vw")}</div>
+    <div class="duo__beeld">{img("home-gerecht.webp", t["alt_visie"], 2000, 1333,sizes="(max-width: 800px) 100vw, 50vw")}</div>
     <div class="duo__tekst">
       <h2>{t["k2"]}</h2>
       {"".join(f"<p>{p}</p>" for p in t["p2"])}
