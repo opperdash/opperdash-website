@@ -283,7 +283,7 @@ h1, h2, h3, .hero__kop { overflow-wrap: break-word; hyphens: auto; }
   font-size: clamp(3.2rem, 8vw, 7.2rem); line-height: .84; letter-spacing: -.005em; margin: 0 0 .14em;
 }
 .hero p { max-width: 640px; color: var(--wit); font-size: clamp(1.15rem, 1.7vw, 1.5rem); line-height: 1.35; margin: 0; }
-.hero .hero__kop { max-width: none; }
+.hero .hero__kop { max-width: none; hyphens: none; overflow-wrap: normal; } /* woorden in de heroslogan nooit afbreken (Elias, 25/11/2026) */
 .hero .hero__tekst { max-width: var(--max); }
 .hero .knoppen { margin-top: 24px; }
 .hero--midden { align-items: center; text-align: center; }
